@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a815add-9a2e-4cd9-acc1-689f6cfbefa2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/symtab_1_0_8.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/symtab-1.0.8.jar" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/BantamJava.tokens" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/BantamJavaBaseVisitor.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/BantamJavaLexer.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/BantamJavaLexer.tokens" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/BantamJavaParser.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/BantamJavaVisitor.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/bjc.iml" afterPath="$PROJECT_DIR$/bjc.iml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Calc.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/testcode/example1.cal" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BantamJava.g4" afterPath="$PROJECT_DIR$/src/main/java/BantamJava.g4" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,12 +21,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BantamJava.g4" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BantamJava.g4" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/BantamJava.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="155" column="4" lean-forward="false" selection-start-line="155" selection-start-column="4" selection-end-line="155" selection-end-column="4" />
+            <state relative-caret-position="284">
+              <caret line="19" column="48" lean-forward="true" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HelloWorld.btm" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testcode/HelloWorld.btm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="5" column="1" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="174">
+                <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -44,8 +67,8 @@
       <file leaf-file-name="Concat.btm" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testcode/Concat.btm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="58">
+              <caret line="2" column="8" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -54,22 +77,9 @@
       <file leaf-file-name="Boolean.btm" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testcode/Boolean.btm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1102">
+            <state relative-caret-position="828">
               <caret line="38" column="1" lean-forward="false" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="174">
-                <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
             </state>
           </provider>
         </entry>
@@ -89,6 +99,9 @@
       <find>LabeledExprParser</find>
       <find>error</find>
       <find>PLUS</find>
+      <find>INT_CONST</find>
+      <find>return</find>
+      <find>retn</find>
     </findStrings>
     <replaceStrings>
       <replace>ExprParser</replace>
@@ -98,7 +111,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="symtab" />
       </map>
     </option>
   </component>
@@ -115,9 +128,9 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Expr.g4" />
         <option value="$PROJECT_DIR$/src/main/java/EvalVisitor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BantamJava.g4" />
         <option value="$PROJECT_DIR$/src/main/java/Calc.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/java/BantamJava.g4" />
       </list>
     </option>
   </component>
@@ -161,7 +174,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -205,11 +218,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="201702-cosc420-bjc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="201702-cosc420-bjc" type="462c0819:PsiDirectoryNode" />
-              <item name="testcode" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -412,9 +420,12 @@
       <item index="2" class="java.lang.String" itemvalue="Maven.calculator [antlr4:antlr4]" />
     </list>
     <recent_temporary>
-      <list size="2">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Maven.calculator [antlr4:antlr4]" />
         <item index="1" class="java.lang.String" itemvalue="Maven.calculator [clean]" />
+        <item index="2" class="java.lang.String" itemvalue="Maven.calculator [antlr4:antlr4]" />
+        <item index="3" class="java.lang.String" itemvalue="Maven.calculator [clean]" />
+        <item index="4" class="java.lang.String" itemvalue="Maven.calculator [antlr4:antlr4]" />
       </list>
     </recent_temporary>
   </component>
@@ -488,29 +499,29 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31224000" />
+    <option name="totallyTimeSpent" value="35087000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="1024" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286638" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30597016" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11075612" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16801292" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29956895" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294271" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20607029" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31260097" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4751244" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47413793" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -518,10 +529,34 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39925373" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11075612" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4751244" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39925373" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30597016" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29956895" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294271" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20607029" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,7 +575,8 @@
     <MESSAGE value="cleaned up code warnings" />
     <MESSAGE value="add .btm test files and renemaed grammar" />
     <MESSAGE value="grammar provided by Harrison" />
-    <option name="LAST_COMMIT_MESSAGE" value="grammar provided by Harrison" />
+    <MESSAGE value="add antlr/symtab jar" />
+    <option name="LAST_COMMIT_MESSAGE" value="add antlr/symtab jar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -559,7 +595,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -593,7 +628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -700,7 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -708,15 +741,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testcode/HelloWorld.btm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -724,7 +748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -732,6 +755,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BantamJava.tokens" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaBaseVisitor.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaLexer.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaLexer.tokens" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaParser.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaVisitor.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Calc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="7" column="39" lean-forward="true" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="174">
+            <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcode/Boolean.btm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="38" column="1" lean-forward="false" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -746,100 +808,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/testcode/Concat.btm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="58">
+          <caret line="2" column="8" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BantamJava.tokens">
+    <entry file="file://$PROJECT_DIR$/testcode/HelloWorld.btm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaBaseVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-663">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaLexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaLexer.tokens">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        <state relative-caret-position="145">
+          <caret line="5" column="1" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/BantamJava.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="155" column="4" lean-forward="false" selection-start-line="155" selection-start-column="4" selection-end-line="155" selection-end-column="4" />
+        <state relative-caret-position="284">
+          <caret line="19" column="48" lean-forward="true" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Calc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="7" column="39" lean-forward="true" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testcode/Boolean.btm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1102">
-          <caret line="38" column="1" lean-forward="false" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="174">
-            <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
