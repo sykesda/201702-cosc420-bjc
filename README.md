@@ -1,5 +1,6 @@
 # Bantam_Java_Compiler
-A start on the compiler for Bantam Java.
 
-The source for the calculator interpreter is still included, but should
-be deleted or replaced.
+An ANTLR grammar file for Bantam Java.
+
+This version includes a library for [ANTLR symtab](https://github.com/antlr/symtab).
+
