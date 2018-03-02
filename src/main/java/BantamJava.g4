@@ -1,54 +1,46 @@
 grammar BantamJava;
 
-program :   classDefn+  ;
-
-classDefn   :   CLASS ID LBRACE member* ;                   //CLASS:t ID:name
-
-member  :   field
-        |   method
+program :   classDefn+                                     #programStart
         ;
 
-field   :   ID ID SEMI                                  //ID:type ID:name
-        |   ID ID ASSIGN expr SEMI                      //ID:type ID:name
+classDefn   :   CLASS ID LBRACE member*                    #class
+            ;
+
+member  :   field                                          #fieldMember
+        |   method                                         #methodMember
         ;
 
-method  :   ID ID formalList LBRACE stmt* retn RBRACE      //ID:ret_type ID:name
-        |   ID ID formalList LBRACE stmt* RBRACE           //ID:ret_type ID:name
+field   :   ID ID SEMI                                     #fieldDeclaration
+        |   ID ID ASSIGN expr SEMI                         #fieldInstantiation
         ;
 
-formalList: LPAREN RPAREN
-          | LPAREN formal (COMMA formal)* RPAREN
+method  :   ID ID formalList LBRACE stmt* retn RBRACE      #methodWithReturn
+        |   ID ID formalList LBRACE stmt* RBRACE           #methodNoReturn
+        ;
+
+formalList: LPAREN RPAREN                                  #formalListEmpty
+          | LPAREN formal (COMMA formal)* RPAREN           #formalListPopulated
           ;
 
-formal: ID ID ;
+formal: ID ID                                              #formalWithTypeAndID
+      ;
 
-stmtList: stmt+
+stmtList: stmt+                                            #listOfStatements
         ;
 
-stmt: ID ID ASSIGN expr SEMI
-    | IF LPAREN expr RPAREN stmt
-    | IF LPAREN expr RPAREN stmt ELSE stmt
-    | WHILE LPAREN expr RPAREN stmt
-    | expr SEMI
-    | blockList
+stmt: ID ID ASSIGN expr SEMI                               #statementDeclaration
+    | IF LPAREN expr RPAREN stmt                           #ifStatement
+    | IF LPAREN expr RPAREN stmt ELSE stmt                 #ifElseStatement
+    | WHILE LPAREN expr RPAREN stmt                        #whileStatement
+    | expr SEMI                                            #exprStatement
+    | blockList                                            #blockListStatement
     ;
-
-//stmtAux: ID ID ASSIGN expr SEMI
-//       | IF LPAREN expr RPAREN stmtAux ELSE stmtAux
-//       | WHILE LPAREN expr RPAREN stmtAux
-//       | expr SEMI
-//       | blockList
-//       ;
 
 blockList: LBRACE stmtList RBRACE ;
 
 retn: RETURN SEMI
     | RETURN expr SEMI
     ;
-
-//expr: exprAux
-//    | ID
-//    ;
 
 expr:    ID
        | ID ASSIGN expr
@@ -58,20 +50,13 @@ expr:    ID
        | NEW ID LPAREN RPAREN
        | expr INSTANCEOF ID
        | LPAREN ID RPAREN LPAREN expr RPAREN
-       // line 425 %prec NOT
        | MINUS expr
        | expr (TIMES | DIVIDE | MODULUS) expr
        | expr (PLUS | MINUS) expr
-       // %prec NOT ends
        | NOT expr
        | expr AND expr
        | expr OR expr
-       | expr EQ expr     // TODO same precedence
-       | expr NE expr
-       | expr LT expr
-       | expr LEQ expr
-       | expr GT expr
-       | expr GEQ expr
+       | expr (EQ | NE | LT | LEQ | GT | GEQ) expr
        | LPAREN expr RPAREN
        | LPAREN ID RPAREN
        | INT_CONST
