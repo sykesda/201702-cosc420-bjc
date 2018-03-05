@@ -1,10 +1,10 @@
 grammar BantamJava;
 
-program :   classDefn+                                     #programStart
+program :   class+                                         #programStart
         ;
 
-classDefn   :   CLASS ID LBRACE member*                    #class
-            ;
+class   :   CLASS ID LBRACE member*                        #cls
+        ;
 
 member  :   field                                          #fieldMember
         |   method                                         #methodMember
@@ -25,18 +25,13 @@ formalList: LPAREN RPAREN                                  #formalListEmpty
 formal: ID ID                                              #formalWithTypeAndID
       ;
 
-stmtList: stmt+                                            #listOfStatements
-        ;
-
 stmt: ID ID ASSIGN expr SEMI                               #statementDeclaration
     | IF LPAREN expr RPAREN stmt                           #ifStatement
     | IF LPAREN expr RPAREN stmt ELSE stmt                 #ifElseStatement
     | WHILE LPAREN expr RPAREN stmt                        #whileStatement
     | expr SEMI                                            #exprStatement
-    | blockList                                            #blockListStatement
+    | LBRACE stmt* RBRACE                                  #blockListStatement
     ;
-
-blockList: LBRACE stmtList RBRACE ;
 
 retn: RETURN SEMI
     | RETURN expr SEMI
@@ -53,10 +48,10 @@ expr:    ID
        | MINUS expr
        | expr (TIMES | DIVIDE | MODULUS) expr
        | expr (PLUS | MINUS) expr
+       | expr (EQ | NE | LT | LE | GT | GE) expr
        | NOT expr
        | expr AND expr
        | expr OR expr
-       | expr (EQ | NE | LT | LEQ | GT | GEQ) expr
        | LPAREN expr RPAREN
        | LPAREN ID RPAREN
        | INT_CONST
@@ -105,8 +100,8 @@ DIVIDE: '/';
 MODULUS: '%';
 EQ: '==';
 NE: '!=';
-LEQ: '<=';
-GEQ: '>=';
+LE: '<=';
+GE: '>=';
 LT: '<';
 GT: '>';
 NOT: '!';

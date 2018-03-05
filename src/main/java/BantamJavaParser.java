@@ -1,4 +1,4 @@
-// Generated from /Users/sykesda/IdeaProjects/2018/02/201702-cosc420-bjc/src/main/java/BantamJava.g4 by ANTLR 4.7
+// Generated from C:/Users/cgwid/IdeaProjects/201702-cosc420-bjc/src/main/java\BantamJava.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -96,19 +96,35 @@ public class BantamJavaParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 	public static class ProgramContext extends ParserRuleContext {
+		public ProgramContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_program; }
+	 
+		public ProgramContext() { }
+		public void copyFrom(ProgramContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class ProgramStartContext extends ProgramContext {
 		public List<ClassDefnContext> classDefn() {
 			return getRuleContexts(ClassDefnContext.class);
 		}
 		public ClassDefnContext classDefn(int i) {
 			return getRuleContext(ClassDefnContext.class,i);
 		}
-		public ProgramContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+		public ProgramStartContext(ProgramContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterProgramStart(this);
 		}
-		@Override public int getRuleIndex() { return RULE_program; }
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitProgramStart(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitProgram(this);
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitProgramStart(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -118,6 +134,7 @@ public class BantamJavaParser extends Parser {
 		enterRule(_localctx, 0, RULE_program);
 		int _la;
 		try {
+			_localctx = new ProgramStartContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(29); 
@@ -148,6 +165,17 @@ public class BantamJavaParser extends Parser {
 	}
 
 	public static class ClassDefnContext extends ParserRuleContext {
+		public ClassDefnContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_classDefn; }
+	 
+		public ClassDefnContext() { }
+		public void copyFrom(ClassDefnContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class ClassContext extends ClassDefnContext {
 		public TerminalNode CLASS() { return getToken(BantamJavaParser.CLASS, 0); }
 		public TerminalNode ID() { return getToken(BantamJavaParser.ID, 0); }
 		public TerminalNode LBRACE() { return getToken(BantamJavaParser.LBRACE, 0); }
@@ -157,13 +185,18 @@ public class BantamJavaParser extends Parser {
 		public MemberContext member(int i) {
 			return getRuleContext(MemberContext.class,i);
 		}
-		public ClassDefnContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+		public ClassContext(ClassDefnContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterClass(this);
 		}
-		@Override public int getRuleIndex() { return RULE_classDefn; }
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitClass(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitClassDefn(this);
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitClass(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -173,6 +206,7 @@ public class BantamJavaParser extends Parser {
 		enterRule(_localctx, 2, RULE_classDefn);
 		int _la;
 		try {
+			_localctx = new ClassContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(33);
@@ -209,19 +243,51 @@ public class BantamJavaParser extends Parser {
 	}
 
 	public static class MemberContext extends ParserRuleContext {
-		public FieldContext field() {
-			return getRuleContext(FieldContext.class,0);
-		}
-		public MethodContext method() {
-			return getRuleContext(MethodContext.class,0);
-		}
 		public MemberContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_member; }
+	 
+		public MemberContext() { }
+		public void copyFrom(MemberContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class MethodMemberContext extends MemberContext {
+		public MethodContext method() {
+			return getRuleContext(MethodContext.class,0);
+		}
+		public MethodMemberContext(MemberContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterMethodMember(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitMethodMember(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitMember(this);
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitMethodMember(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class FieldMemberContext extends MemberContext {
+		public FieldContext field() {
+			return getRuleContext(FieldContext.class,0);
+		}
+		public FieldMemberContext(MemberContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterFieldMember(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitFieldMember(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitFieldMember(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -234,6 +300,7 @@ public class BantamJavaParser extends Parser {
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 			case 1:
+				_localctx = new FieldMemberContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(42);
@@ -241,6 +308,7 @@ public class BantamJavaParser extends Parser {
 				}
 				break;
 			case 2:
+				_localctx = new MethodMemberContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(43);
@@ -261,22 +329,59 @@ public class BantamJavaParser extends Parser {
 	}
 
 	public static class FieldContext extends ParserRuleContext {
+		public FieldContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_field; }
+	 
+		public FieldContext() { }
+		public void copyFrom(FieldContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class FieldDeclarationContext extends FieldContext {
 		public List<TerminalNode> ID() { return getTokens(BantamJavaParser.ID); }
 		public TerminalNode ID(int i) {
 			return getToken(BantamJavaParser.ID, i);
 		}
 		public TerminalNode SEMI() { return getToken(BantamJavaParser.SEMI, 0); }
+		public FieldDeclarationContext(FieldContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterFieldDeclaration(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitFieldDeclaration(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitFieldDeclaration(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class FieldInstantiationContext extends FieldContext {
+		public List<TerminalNode> ID() { return getTokens(BantamJavaParser.ID); }
+		public TerminalNode ID(int i) {
+			return getToken(BantamJavaParser.ID, i);
+		}
 		public TerminalNode ASSIGN() { return getToken(BantamJavaParser.ASSIGN, 0); }
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
-		public FieldContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+		public TerminalNode SEMI() { return getToken(BantamJavaParser.SEMI, 0); }
+		public FieldInstantiationContext(FieldContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterFieldInstantiation(this);
 		}
-		@Override public int getRuleIndex() { return RULE_field; }
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitFieldInstantiation(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitField(this);
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitFieldInstantiation(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -289,6 +394,7 @@ public class BantamJavaParser extends Parser {
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
 			case 1:
+				_localctx = new FieldDeclarationContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(46);
@@ -300,6 +406,7 @@ public class BantamJavaParser extends Parser {
 				}
 				break;
 			case 2:
+				_localctx = new FieldInstantiationContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(49);
@@ -328,6 +435,17 @@ public class BantamJavaParser extends Parser {
 	}
 
 	public static class MethodContext extends ParserRuleContext {
+		public MethodContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_method; }
+	 
+		public MethodContext() { }
+		public void copyFrom(MethodContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class MethodWithReturnContext extends MethodContext {
 		public List<TerminalNode> ID() { return getTokens(BantamJavaParser.ID); }
 		public TerminalNode ID(int i) {
 			return getToken(BantamJavaParser.ID, i);
@@ -346,13 +464,49 @@ public class BantamJavaParser extends Parser {
 		public StmtContext stmt(int i) {
 			return getRuleContext(StmtContext.class,i);
 		}
-		public MethodContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+		public MethodWithReturnContext(MethodContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterMethodWithReturn(this);
 		}
-		@Override public int getRuleIndex() { return RULE_method; }
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitMethodWithReturn(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitMethod(this);
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitMethodWithReturn(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class MethodNoReturnContext extends MethodContext {
+		public List<TerminalNode> ID() { return getTokens(BantamJavaParser.ID); }
+		public TerminalNode ID(int i) {
+			return getToken(BantamJavaParser.ID, i);
+		}
+		public FormalListContext formalList() {
+			return getRuleContext(FormalListContext.class,0);
+		}
+		public TerminalNode LBRACE() { return getToken(BantamJavaParser.LBRACE, 0); }
+		public TerminalNode RBRACE() { return getToken(BantamJavaParser.RBRACE, 0); }
+		public List<StmtContext> stmt() {
+			return getRuleContexts(StmtContext.class);
+		}
+		public StmtContext stmt(int i) {
+			return getRuleContext(StmtContext.class,i);
+		}
+		public MethodNoReturnContext(MethodContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterMethodNoReturn(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitMethodNoReturn(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitMethodNoReturn(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -366,6 +520,7 @@ public class BantamJavaParser extends Parser {
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 			case 1:
+				_localctx = new MethodWithReturnContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(57);
@@ -397,6 +552,7 @@ public class BantamJavaParser extends Parser {
 				}
 				break;
 			case 2:
+				_localctx = new MethodNoReturnContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(70);
@@ -439,25 +595,59 @@ public class BantamJavaParser extends Parser {
 	}
 
 	public static class FormalListContext extends ParserRuleContext {
+		public FormalListContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_formalList; }
+	 
+		public FormalListContext() { }
+		public void copyFrom(FormalListContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class FormalListEmptyContext extends FormalListContext {
 		public TerminalNode LPAREN() { return getToken(BantamJavaParser.LPAREN, 0); }
 		public TerminalNode RPAREN() { return getToken(BantamJavaParser.RPAREN, 0); }
+		public FormalListEmptyContext(FormalListContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterFormalListEmpty(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitFormalListEmpty(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitFormalListEmpty(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class FormalListPopulatedContext extends FormalListContext {
+		public TerminalNode LPAREN() { return getToken(BantamJavaParser.LPAREN, 0); }
 		public List<FormalContext> formal() {
 			return getRuleContexts(FormalContext.class);
 		}
 		public FormalContext formal(int i) {
 			return getRuleContext(FormalContext.class,i);
 		}
+		public TerminalNode RPAREN() { return getToken(BantamJavaParser.RPAREN, 0); }
 		public List<TerminalNode> COMMA() { return getTokens(BantamJavaParser.COMMA); }
 		public TerminalNode COMMA(int i) {
 			return getToken(BantamJavaParser.COMMA, i);
 		}
-		public FormalListContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+		public FormalListPopulatedContext(FormalListContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterFormalListPopulated(this);
 		}
-		@Override public int getRuleIndex() { return RULE_formalList; }
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitFormalListPopulated(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitFormalList(this);
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitFormalListPopulated(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -471,6 +661,7 @@ public class BantamJavaParser extends Parser {
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,8,_ctx) ) {
 			case 1:
+				_localctx = new FormalListEmptyContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(84);
@@ -480,6 +671,7 @@ public class BantamJavaParser extends Parser {
 				}
 				break;
 			case 2:
+				_localctx = new FormalListPopulatedContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(86);
@@ -520,17 +712,33 @@ public class BantamJavaParser extends Parser {
 	}
 
 	public static class FormalContext extends ParserRuleContext {
-		public List<TerminalNode> ID() { return getTokens(BantamJavaParser.ID); }
-		public TerminalNode ID(int i) {
-			return getToken(BantamJavaParser.ID, i);
-		}
 		public FormalContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_formal; }
+	 
+		public FormalContext() { }
+		public void copyFrom(FormalContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class FormalWithTypeAndIDContext extends FormalContext {
+		public List<TerminalNode> ID() { return getTokens(BantamJavaParser.ID); }
+		public TerminalNode ID(int i) {
+			return getToken(BantamJavaParser.ID, i);
+		}
+		public FormalWithTypeAndIDContext(FormalContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterFormalWithTypeAndID(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitFormalWithTypeAndID(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitFormal(this);
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitFormalWithTypeAndID(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -539,6 +747,7 @@ public class BantamJavaParser extends Parser {
 		FormalContext _localctx = new FormalContext(_ctx, getState());
 		enterRule(_localctx, 12, RULE_formal);
 		try {
+			_localctx = new FormalWithTypeAndIDContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(99);
@@ -559,19 +768,35 @@ public class BantamJavaParser extends Parser {
 	}
 
 	public static class StmtListContext extends ParserRuleContext {
+		public StmtListContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_stmtList; }
+	 
+		public StmtListContext() { }
+		public void copyFrom(StmtListContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class ListOfStatementsContext extends StmtListContext {
 		public List<StmtContext> stmt() {
 			return getRuleContexts(StmtContext.class);
 		}
 		public StmtContext stmt(int i) {
 			return getRuleContext(StmtContext.class,i);
 		}
-		public StmtListContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+		public ListOfStatementsContext(StmtListContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterListOfStatements(this);
 		}
-		@Override public int getRuleIndex() { return RULE_stmtList; }
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitListOfStatements(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitStmtList(this);
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitListOfStatements(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -581,6 +806,7 @@ public class BantamJavaParser extends Parser {
 		enterRule(_localctx, 14, RULE_stmtList);
 		int _la;
 		try {
+			_localctx = new ListOfStatementsContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(103); 
@@ -611,6 +837,42 @@ public class BantamJavaParser extends Parser {
 	}
 
 	public static class StmtContext extends ParserRuleContext {
+		public StmtContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_stmt; }
+	 
+		public StmtContext() { }
+		public void copyFrom(StmtContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class WhileStatementContext extends StmtContext {
+		public TerminalNode WHILE() { return getToken(BantamJavaParser.WHILE, 0); }
+		public TerminalNode LPAREN() { return getToken(BantamJavaParser.LPAREN, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public TerminalNode RPAREN() { return getToken(BantamJavaParser.RPAREN, 0); }
+		public StmtContext stmt() {
+			return getRuleContext(StmtContext.class,0);
+		}
+		public WhileStatementContext(StmtContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterWhileStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitWhileStatement(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitWhileStatement(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class StatementDeclarationContext extends StmtContext {
 		public List<TerminalNode> ID() { return getTokens(BantamJavaParser.ID); }
 		public TerminalNode ID(int i) {
 			return getToken(BantamJavaParser.ID, i);
@@ -620,8 +882,27 @@ public class BantamJavaParser extends Parser {
 			return getRuleContext(ExprContext.class,0);
 		}
 		public TerminalNode SEMI() { return getToken(BantamJavaParser.SEMI, 0); }
+		public StatementDeclarationContext(StmtContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterStatementDeclaration(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitStatementDeclaration(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitStatementDeclaration(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class IfElseStatementContext extends StmtContext {
 		public TerminalNode IF() { return getToken(BantamJavaParser.IF, 0); }
 		public TerminalNode LPAREN() { return getToken(BantamJavaParser.LPAREN, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
 		public TerminalNode RPAREN() { return getToken(BantamJavaParser.RPAREN, 0); }
 		public List<StmtContext> stmt() {
 			return getRuleContexts(StmtContext.class);
@@ -630,17 +911,82 @@ public class BantamJavaParser extends Parser {
 			return getRuleContext(StmtContext.class,i);
 		}
 		public TerminalNode ELSE() { return getToken(BantamJavaParser.ELSE, 0); }
-		public TerminalNode WHILE() { return getToken(BantamJavaParser.WHILE, 0); }
+		public IfElseStatementContext(StmtContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterIfElseStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitIfElseStatement(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitIfElseStatement(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ExprStatementContext extends StmtContext {
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public TerminalNode SEMI() { return getToken(BantamJavaParser.SEMI, 0); }
+		public ExprStatementContext(StmtContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprStatement(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprStatement(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class BlockListStatementContext extends StmtContext {
 		public BlockListContext blockList() {
 			return getRuleContext(BlockListContext.class,0);
 		}
-		public StmtContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
+		public BlockListStatementContext(StmtContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterBlockListStatement(this);
 		}
-		@Override public int getRuleIndex() { return RULE_stmt; }
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitBlockListStatement(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitStmt(this);
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitBlockListStatement(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class IfStatementContext extends StmtContext {
+		public TerminalNode IF() { return getToken(BantamJavaParser.IF, 0); }
+		public TerminalNode LPAREN() { return getToken(BantamJavaParser.LPAREN, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public TerminalNode RPAREN() { return getToken(BantamJavaParser.RPAREN, 0); }
+		public StmtContext stmt() {
+			return getRuleContext(StmtContext.class,0);
+		}
+		public IfStatementContext(StmtContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterIfStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitIfStatement(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitIfStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -653,6 +999,7 @@ public class BantamJavaParser extends Parser {
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
 			case 1:
+				_localctx = new StatementDeclarationContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(107);
@@ -668,6 +1015,7 @@ public class BantamJavaParser extends Parser {
 				}
 				break;
 			case 2:
+				_localctx = new IfStatementContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(113);
@@ -683,6 +1031,7 @@ public class BantamJavaParser extends Parser {
 				}
 				break;
 			case 3:
+				_localctx = new IfElseStatementContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(119);
@@ -702,6 +1051,7 @@ public class BantamJavaParser extends Parser {
 				}
 				break;
 			case 4:
+				_localctx = new WhileStatementContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(127);
@@ -717,6 +1067,7 @@ public class BantamJavaParser extends Parser {
 				}
 				break;
 			case 5:
+				_localctx = new ExprStatementContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
 				setState(133);
@@ -726,6 +1077,7 @@ public class BantamJavaParser extends Parser {
 				}
 				break;
 			case 6:
+				_localctx = new BlockListStatementContext(_localctx);
 				enterOuterAlt(_localctx, 6);
 				{
 				setState(136);
@@ -755,6 +1107,14 @@ public class BantamJavaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_blockList; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterBlockList(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitBlockList(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitBlockList(this);
@@ -797,6 +1157,14 @@ public class BantamJavaParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_retn; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterRetn(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitRetn(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitRetn(this);
@@ -892,6 +1260,14 @@ public class BantamJavaParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_expr; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExpr(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExpr(this);
 			else return visitor.visitChildren(this);
@@ -930,7 +1306,7 @@ public class BantamJavaParser extends Parser {
 				setState(154);
 				match(ASSIGN);
 				setState(155);
-				expr(24);
+				expr(19);
 				}
 				break;
 			case 3:
@@ -982,7 +1358,7 @@ public class BantamJavaParser extends Parser {
 				setState(171);
 				match(MINUS);
 				setState(172);
-				expr(17);
+				expr(12);
 				}
 				break;
 			case 8:
@@ -990,7 +1366,7 @@ public class BantamJavaParser extends Parser {
 				setState(173);
 				match(NOT);
 				setState(174);
-				expr(14);
+				expr(9);
 				}
 				break;
 			case 9:
@@ -1033,7 +1409,7 @@ public class BantamJavaParser extends Parser {
 				break;
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(226);
+			setState(211);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,14,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -1041,7 +1417,7 @@ public class BantamJavaParser extends Parser {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(224);
+					setState(209);
 					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,13,_ctx) ) {
 					case 1:
@@ -1049,7 +1425,7 @@ public class BantamJavaParser extends Parser {
 						_localctx = new ExprContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(187);
-						if (!(precpred(_ctx, 16))) throw new FailedPredicateException(this, "precpred(_ctx, 16)");
+						if (!(precpred(_ctx, 11))) throw new FailedPredicateException(this, "precpred(_ctx, 11)");
 						setState(188);
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << TIMES) | (1L << DIVIDE) | (1L << MODULUS))) != 0)) ) {
@@ -1061,7 +1437,7 @@ public class BantamJavaParser extends Parser {
 							consume();
 						}
 						setState(189);
-						expr(17);
+						expr(12);
 						}
 						break;
 					case 2:
@@ -1069,7 +1445,7 @@ public class BantamJavaParser extends Parser {
 						_localctx = new ExprContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(190);
-						if (!(precpred(_ctx, 15))) throw new FailedPredicateException(this, "precpred(_ctx, 15)");
+						if (!(precpred(_ctx, 10))) throw new FailedPredicateException(this, "precpred(_ctx, 10)");
 						setState(191);
 						_la = _input.LA(1);
 						if ( !(_la==PLUS || _la==MINUS) ) {
@@ -1081,7 +1457,7 @@ public class BantamJavaParser extends Parser {
 							consume();
 						}
 						setState(192);
-						expr(16);
+						expr(11);
 						}
 						break;
 					case 3:
@@ -1089,11 +1465,11 @@ public class BantamJavaParser extends Parser {
 						_localctx = new ExprContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(193);
-						if (!(precpred(_ctx, 13))) throw new FailedPredicateException(this, "precpred(_ctx, 13)");
+						if (!(precpred(_ctx, 8))) throw new FailedPredicateException(this, "precpred(_ctx, 8)");
 						setState(194);
 						match(AND);
 						setState(195);
-						expr(14);
+						expr(9);
 						}
 						break;
 					case 4:
@@ -1101,11 +1477,11 @@ public class BantamJavaParser extends Parser {
 						_localctx = new ExprContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(196);
-						if (!(precpred(_ctx, 12))) throw new FailedPredicateException(this, "precpred(_ctx, 12)");
+						if (!(precpred(_ctx, 7))) throw new FailedPredicateException(this, "precpred(_ctx, 7)");
 						setState(197);
 						match(OR);
 						setState(198);
-						expr(13);
+						expr(8);
 						}
 						break;
 					case 5:
@@ -1113,11 +1489,19 @@ public class BantamJavaParser extends Parser {
 						_localctx = new ExprContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(199);
-						if (!(precpred(_ctx, 11))) throw new FailedPredicateException(this, "precpred(_ctx, 11)");
+						if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");
 						setState(200);
-						match(EQ);
+						_la = _input.LA(1);
+						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << EQ) | (1L << NE) | (1L << LEQ) | (1L << GEQ) | (1L << LT) | (1L << GT))) != 0)) ) {
+						_errHandler.recoverInline(this);
+						}
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
 						setState(201);
-						expr(12);
+						expr(7);
 						}
 						break;
 					case 6:
@@ -1125,91 +1509,31 @@ public class BantamJavaParser extends Parser {
 						_localctx = new ExprContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(202);
-						if (!(precpred(_ctx, 10))) throw new FailedPredicateException(this, "precpred(_ctx, 10)");
+						if (!(precpred(_ctx, 17))) throw new FailedPredicateException(this, "precpred(_ctx, 17)");
 						setState(203);
-						match(NE);
+						match(DOT);
 						setState(204);
-						expr(11);
+						match(ID);
+						setState(205);
+						argsList();
 						}
 						break;
 					case 7:
 						{
 						_localctx = new ExprContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(205);
-						if (!(precpred(_ctx, 9))) throw new FailedPredicateException(this, "precpred(_ctx, 9)");
 						setState(206);
-						match(LT);
+						if (!(precpred(_ctx, 14))) throw new FailedPredicateException(this, "precpred(_ctx, 14)");
 						setState(207);
-						expr(10);
-						}
-						break;
-					case 8:
-						{
-						_localctx = new ExprContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(208);
-						if (!(precpred(_ctx, 8))) throw new FailedPredicateException(this, "precpred(_ctx, 8)");
-						setState(209);
-						match(LEQ);
-						setState(210);
-						expr(9);
-						}
-						break;
-					case 9:
-						{
-						_localctx = new ExprContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(211);
-						if (!(precpred(_ctx, 7))) throw new FailedPredicateException(this, "precpred(_ctx, 7)");
-						setState(212);
-						match(GT);
-						setState(213);
-						expr(8);
-						}
-						break;
-					case 10:
-						{
-						_localctx = new ExprContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(214);
-						if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");
-						setState(215);
-						match(GEQ);
-						setState(216);
-						expr(7);
-						}
-						break;
-					case 11:
-						{
-						_localctx = new ExprContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(217);
-						if (!(precpred(_ctx, 22))) throw new FailedPredicateException(this, "precpred(_ctx, 22)");
-						setState(218);
-						match(DOT);
-						setState(219);
-						match(ID);
-						setState(220);
-						argsList();
-						}
-						break;
-					case 12:
-						{
-						_localctx = new ExprContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(221);
-						if (!(precpred(_ctx, 19))) throw new FailedPredicateException(this, "precpred(_ctx, 19)");
-						setState(222);
 						match(INSTANCEOF);
-						setState(223);
+						setState(208);
 						match(ID);
 						}
 						break;
 					}
 					} 
 				}
-				setState(228);
+				setState(213);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,14,_ctx);
 			}
@@ -1244,6 +1568,14 @@ public class BantamJavaParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_memberRef; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterMemberRef(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitMemberRef(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitMemberRef(this);
 			else return visitor.visitChildren(this);
@@ -1254,45 +1586,45 @@ public class BantamJavaParser extends Parser {
 		MemberRefContext _localctx = new MemberRefContext(_ctx, getState());
 		enterRule(_localctx, 24, RULE_memberRef);
 		try {
-			setState(241);
+			setState(226);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(229);
+				setState(214);
 				match(ID);
-				setState(230);
+				setState(215);
 				match(DOT);
-				setState(231);
+				setState(216);
 				match(ID);
-				setState(232);
+				setState(217);
 				argsList();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(233);
+				setState(218);
 				match(ID);
-				setState(234);
+				setState(219);
 				match(DOT);
-				setState(235);
+				setState(220);
 				match(ID);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(236);
+				setState(221);
 				match(ID);
-				setState(237);
+				setState(222);
 				match(DOT);
-				setState(238);
+				setState(223);
 				match(ID);
-				setState(239);
+				setState(224);
 				match(ASSIGN);
-				setState(240);
+				setState(225);
 				expr(0);
 				}
 				break;
@@ -1327,6 +1659,14 @@ public class BantamJavaParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_argsList; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterArgsList(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitArgsList(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitArgsList(this);
 			else return visitor.visitChildren(this);
@@ -1338,42 +1678,42 @@ public class BantamJavaParser extends Parser {
 		enterRule(_localctx, 26, RULE_argsList);
 		int _la;
 		try {
-			setState(256);
+			setState(241);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,17,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(243);
+				setState(228);
 				match(LPAREN);
-				setState(244);
+				setState(229);
 				match(RPAREN);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(245);
+				setState(230);
 				match(LPAREN);
-				setState(246);
+				setState(231);
 				expr(0);
-				setState(251);
+				setState(236);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(247);
+					setState(232);
 					match(COMMA);
-					setState(248);
+					setState(233);
 					expr(0);
 					}
 					}
-					setState(253);
+					setState(238);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(254);
+				setState(239);
 				match(RPAREN);
 				}
 				break;
@@ -1400,35 +1740,25 @@ public class BantamJavaParser extends Parser {
 	private boolean expr_sempred(ExprContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
-			return precpred(_ctx, 16);
-		case 1:
-			return precpred(_ctx, 15);
-		case 2:
-			return precpred(_ctx, 13);
-		case 3:
-			return precpred(_ctx, 12);
-		case 4:
 			return precpred(_ctx, 11);
-		case 5:
+		case 1:
 			return precpred(_ctx, 10);
-		case 6:
-			return precpred(_ctx, 9);
-		case 7:
+		case 2:
 			return precpred(_ctx, 8);
-		case 8:
+		case 3:
 			return precpred(_ctx, 7);
-		case 9:
+		case 4:
 			return precpred(_ctx, 6);
-		case 10:
-			return precpred(_ctx, 22);
-		case 11:
-			return precpred(_ctx, 19);
+		case 5:
+			return precpred(_ctx, 17);
+		case 6:
+			return precpred(_ctx, 14);
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3,\u0105\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3,\u00f6\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\3\2\6\2 \n\2\r\2\16\2!\3\3\3\3"+
 		"\3\3\3\3\7\3(\n\3\f\3\16\3+\13\3\3\4\3\4\5\4/\n\4\3\5\3\5\3\5\3\5\3\5"+
@@ -1441,80 +1771,74 @@ public class BantamJavaParser extends Parser {
 		"\3\f\5\f\u0098\n\f\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r"+
 		"\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3"+
 		"\r\3\r\3\r\3\r\5\r\u00bc\n\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3"+
-		"\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r"+
-		"\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\7\r\u00e3\n\r\f\r\16\r\u00e6\13\r"+
-		"\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\5\16\u00f4"+
-		"\n\16\3\17\3\17\3\17\3\17\3\17\3\17\7\17\u00fc\n\17\f\17\16\17\u00ff\13"+
-		"\17\3\17\3\17\5\17\u0103\n\17\3\17\2\3\30\20\2\4\6\b\n\f\16\20\22\24\26"+
-		"\30\32\34\2\4\3\2\27\31\3\2\25\26\2\u0122\2\37\3\2\2\2\4#\3\2\2\2\6.\3"+
-		"\2\2\2\b9\3\2\2\2\nT\3\2\2\2\fc\3\2\2\2\16e\3\2\2\2\20i\3\2\2\2\22\u008b"+
-		"\3\2\2\2\24\u008d\3\2\2\2\26\u0097\3\2\2\2\30\u00bb\3\2\2\2\32\u00f3\3"+
-		"\2\2\2\34\u0102\3\2\2\2\36 \5\4\3\2\37\36\3\2\2\2 !\3\2\2\2!\37\3\2\2"+
-		"\2!\"\3\2\2\2\"\3\3\2\2\2#$\7\7\2\2$%\7\'\2\2%)\7\17\2\2&(\5\6\4\2\'&"+
-		"\3\2\2\2(+\3\2\2\2)\'\3\2\2\2)*\3\2\2\2*\5\3\2\2\2+)\3\2\2\2,/\5\b\5\2"+
-		"-/\5\n\6\2.,\3\2\2\2.-\3\2\2\2/\7\3\2\2\2\60\61\7\'\2\2\61\62\7\'\2\2"+
-		"\62:\7\23\2\2\63\64\7\'\2\2\64\65\7\'\2\2\65\66\7#\2\2\66\67\5\30\r\2"+
-		"\678\7\23\2\28:\3\2\2\29\60\3\2\2\29\63\3\2\2\2:\t\3\2\2\2;<\7\'\2\2<"+
-		"=\7\'\2\2=>\5\f\7\2>B\7\17\2\2?A\5\22\n\2@?\3\2\2\2AD\3\2\2\2B@\3\2\2"+
-		"\2BC\3\2\2\2CE\3\2\2\2DB\3\2\2\2EF\5\26\f\2FG\7\20\2\2GU\3\2\2\2HI\7\'"+
-		"\2\2IJ\7\'\2\2JK\5\f\7\2KO\7\17\2\2LN\5\22\n\2ML\3\2\2\2NQ\3\2\2\2OM\3"+
-		"\2\2\2OP\3\2\2\2PR\3\2\2\2QO\3\2\2\2RS\7\20\2\2SU\3\2\2\2T;\3\2\2\2TH"+
-		"\3\2\2\2U\13\3\2\2\2VW\7\21\2\2Wd\7\22\2\2XY\7\21\2\2Y^\5\16\b\2Z[\7\24"+
-		"\2\2[]\5\16\b\2\\Z\3\2\2\2]`\3\2\2\2^\\\3\2\2\2^_\3\2\2\2_a\3\2\2\2`^"+
-		"\3\2\2\2ab\7\22\2\2bd\3\2\2\2cV\3\2\2\2cX\3\2\2\2d\r\3\2\2\2ef\7\'\2\2"+
-		"fg\7\'\2\2g\17\3\2\2\2hj\5\22\n\2ih\3\2\2\2jk\3\2\2\2ki\3\2\2\2kl\3\2"+
-		"\2\2l\21\3\2\2\2mn\7\'\2\2no\7\'\2\2op\7#\2\2pq\5\30\r\2qr\7\23\2\2r\u008c"+
-		"\3\2\2\2st\7\n\2\2tu\7\21\2\2uv\5\30\r\2vw\7\22\2\2wx\5\22\n\2x\u008c"+
-		"\3\2\2\2yz\7\n\2\2z{\7\21\2\2{|\5\30\r\2|}\7\22\2\2}~\5\22\n\2~\177\7"+
-		"\13\2\2\177\u0080\5\22\n\2\u0080\u008c\3\2\2\2\u0081\u0082\7\f\2\2\u0082"+
-		"\u0083\7\21\2\2\u0083\u0084\5\30\r\2\u0084\u0085\7\22\2\2\u0085\u0086"+
-		"\5\22\n\2\u0086\u008c\3\2\2\2\u0087\u0088\5\30\r\2\u0088\u0089\7\23\2"+
-		"\2\u0089\u008c\3\2\2\2\u008a\u008c\5\24\13\2\u008bm\3\2\2\2\u008bs\3\2"+
-		"\2\2\u008by\3\2\2\2\u008b\u0081\3\2\2\2\u008b\u0087\3\2\2\2\u008b\u008a"+
-		"\3\2\2\2\u008c\23\3\2\2\2\u008d\u008e\7\17\2\2\u008e\u008f\5\20\t\2\u008f"+
-		"\u0090\7\20\2\2\u0090\25\3\2\2\2\u0091\u0092\7\t\2\2\u0092\u0098\7\23"+
-		"\2\2\u0093\u0094\7\t\2\2\u0094\u0095\5\30\r\2\u0095\u0096\7\23\2\2\u0096"+
-		"\u0098\3\2\2\2\u0097\u0091\3\2\2\2\u0097\u0093\3\2\2\2\u0098\27\3\2\2"+
-		"\2\u0099\u009a\b\r\1\2\u009a\u00bc\7\'\2\2\u009b\u009c\7\'\2\2\u009c\u009d"+
-		"\7#\2\2\u009d\u00bc\5\30\r\32\u009e\u00bc\5\32\16\2\u009f\u00a0\7\r\2"+
-		"\2\u00a0\u00a1\7\'\2\2\u00a1\u00bc\5\34\17\2\u00a2\u00a3\7\r\2\2\u00a3"+
-		"\u00a4\7\'\2\2\u00a4\u00a5\7\21\2\2\u00a5\u00bc\7\22\2\2\u00a6\u00a7\7"+
-		"\21\2\2\u00a7\u00a8\7\'\2\2\u00a8\u00a9\7\22\2\2\u00a9\u00aa\7\21\2\2"+
-		"\u00aa\u00ab\5\30\r\2\u00ab\u00ac\7\22\2\2\u00ac\u00bc\3\2\2\2\u00ad\u00ae"+
-		"\7\26\2\2\u00ae\u00bc\5\30\r\23\u00af\u00b0\7 \2\2\u00b0\u00bc\5\30\r"+
-		"\20\u00b1\u00b2\7\21\2\2\u00b2\u00b3\5\30\r\2\u00b3\u00b4\7\22\2\2\u00b4"+
-		"\u00bc\3\2\2\2\u00b5\u00b6\7\21\2\2\u00b6\u00b7\7\'\2\2\u00b7\u00bc\7"+
-		"\22\2\2\u00b8\u00bc\7)\2\2\u00b9\u00bc\7(\2\2\u00ba\u00bc\7*\2\2\u00bb"+
-		"\u0099\3\2\2\2\u00bb\u009b\3\2\2\2\u00bb\u009e\3\2\2\2\u00bb\u009f\3\2"+
-		"\2\2\u00bb\u00a2\3\2\2\2\u00bb\u00a6\3\2\2\2\u00bb\u00ad\3\2\2\2\u00bb"+
-		"\u00af\3\2\2\2\u00bb\u00b1\3\2\2\2\u00bb\u00b5\3\2\2\2\u00bb\u00b8\3\2"+
-		"\2\2\u00bb\u00b9\3\2\2\2\u00bb\u00ba\3\2\2\2\u00bc\u00e4\3\2\2\2\u00bd"+
-		"\u00be\f\22\2\2\u00be\u00bf\t\2\2\2\u00bf\u00e3\5\30\r\23\u00c0\u00c1"+
-		"\f\21\2\2\u00c1\u00c2\t\3\2\2\u00c2\u00e3\5\30\r\22\u00c3\u00c4\f\17\2"+
-		"\2\u00c4\u00c5\7!\2\2\u00c5\u00e3\5\30\r\20\u00c6\u00c7\f\16\2\2\u00c7"+
-		"\u00c8\7\"\2\2\u00c8\u00e3\5\30\r\17\u00c9\u00ca\f\r\2\2\u00ca\u00cb\7"+
-		"\32\2\2\u00cb\u00e3\5\30\r\16\u00cc\u00cd\f\f\2\2\u00cd\u00ce\7\33\2\2"+
-		"\u00ce\u00e3\5\30\r\r\u00cf\u00d0\f\13\2\2\u00d0\u00d1\7\36\2\2\u00d1"+
-		"\u00e3\5\30\r\f\u00d2\u00d3\f\n\2\2\u00d3\u00d4\7\34\2\2\u00d4\u00e3\5"+
-		"\30\r\13\u00d5\u00d6\f\t\2\2\u00d6\u00d7\7\37\2\2\u00d7\u00e3\5\30\r\n"+
-		"\u00d8\u00d9\f\b\2\2\u00d9\u00da\7\35\2\2\u00da\u00e3\5\30\r\t\u00db\u00dc"+
-		"\f\30\2\2\u00dc\u00dd\7$\2\2\u00dd\u00de\7\'\2\2\u00de\u00e3\5\34\17\2"+
-		"\u00df\u00e0\f\25\2\2\u00e0\u00e1\7\16\2\2\u00e1\u00e3\7\'\2\2\u00e2\u00bd"+
-		"\3\2\2\2\u00e2\u00c0\3\2\2\2\u00e2\u00c3\3\2\2\2\u00e2\u00c6\3\2\2\2\u00e2"+
-		"\u00c9\3\2\2\2\u00e2\u00cc\3\2\2\2\u00e2\u00cf\3\2\2\2\u00e2\u00d2\3\2"+
-		"\2\2\u00e2\u00d5\3\2\2\2\u00e2\u00d8\3\2\2\2\u00e2\u00db\3\2\2\2\u00e2"+
-		"\u00df\3\2\2\2\u00e3\u00e6\3\2\2\2\u00e4\u00e2\3\2\2\2\u00e4\u00e5\3\2"+
-		"\2\2\u00e5\31\3\2\2\2\u00e6\u00e4\3\2\2\2\u00e7\u00e8\7\'\2\2\u00e8\u00e9"+
-		"\7$\2\2\u00e9\u00ea\7\'\2\2\u00ea\u00f4\5\34\17\2\u00eb\u00ec\7\'\2\2"+
-		"\u00ec\u00ed\7$\2\2\u00ed\u00f4\7\'\2\2\u00ee\u00ef\7\'\2\2\u00ef\u00f0"+
-		"\7$\2\2\u00f0\u00f1\7\'\2\2\u00f1\u00f2\7#\2\2\u00f2\u00f4\5\30\r\2\u00f3"+
-		"\u00e7\3\2\2\2\u00f3\u00eb\3\2\2\2\u00f3\u00ee\3\2\2\2\u00f4\33\3\2\2"+
-		"\2\u00f5\u00f6\7\21\2\2\u00f6\u0103\7\22\2\2\u00f7\u00f8\7\21\2\2\u00f8"+
-		"\u00fd\5\30\r\2\u00f9\u00fa\7\24\2\2\u00fa\u00fc\5\30\r\2\u00fb\u00f9"+
-		"\3\2\2\2\u00fc\u00ff\3\2\2\2\u00fd\u00fb\3\2\2\2\u00fd\u00fe\3\2\2\2\u00fe"+
-		"\u0100\3\2\2\2\u00ff\u00fd\3\2\2\2\u0100\u0101\7\22\2\2\u0101\u0103\3"+
-		"\2\2\2\u0102\u00f5\3\2\2\2\u0102\u00f7\3\2\2\2\u0103\35\3\2\2\2\24!)."+
-		"9BOT^ck\u008b\u0097\u00bb\u00e2\u00e4\u00f3\u00fd\u0102";
+		"\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\7\r\u00d4\n\r\f\r\16\r"+
+		"\u00d7\13\r\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16"+
+		"\5\16\u00e5\n\16\3\17\3\17\3\17\3\17\3\17\3\17\7\17\u00ed\n\17\f\17\16"+
+		"\17\u00f0\13\17\3\17\3\17\5\17\u00f4\n\17\3\17\2\3\30\20\2\4\6\b\n\f\16"+
+		"\20\22\24\26\30\32\34\2\5\3\2\27\31\3\2\25\26\3\2\32\37\2\u010e\2\37\3"+
+		"\2\2\2\4#\3\2\2\2\6.\3\2\2\2\b9\3\2\2\2\nT\3\2\2\2\fc\3\2\2\2\16e\3\2"+
+		"\2\2\20i\3\2\2\2\22\u008b\3\2\2\2\24\u008d\3\2\2\2\26\u0097\3\2\2\2\30"+
+		"\u00bb\3\2\2\2\32\u00e4\3\2\2\2\34\u00f3\3\2\2\2\36 \5\4\3\2\37\36\3\2"+
+		"\2\2 !\3\2\2\2!\37\3\2\2\2!\"\3\2\2\2\"\3\3\2\2\2#$\7\7\2\2$%\7\'\2\2"+
+		"%)\7\17\2\2&(\5\6\4\2\'&\3\2\2\2(+\3\2\2\2)\'\3\2\2\2)*\3\2\2\2*\5\3\2"+
+		"\2\2+)\3\2\2\2,/\5\b\5\2-/\5\n\6\2.,\3\2\2\2.-\3\2\2\2/\7\3\2\2\2\60\61"+
+		"\7\'\2\2\61\62\7\'\2\2\62:\7\23\2\2\63\64\7\'\2\2\64\65\7\'\2\2\65\66"+
+		"\7#\2\2\66\67\5\30\r\2\678\7\23\2\28:\3\2\2\29\60\3\2\2\29\63\3\2\2\2"+
+		":\t\3\2\2\2;<\7\'\2\2<=\7\'\2\2=>\5\f\7\2>B\7\17\2\2?A\5\22\n\2@?\3\2"+
+		"\2\2AD\3\2\2\2B@\3\2\2\2BC\3\2\2\2CE\3\2\2\2DB\3\2\2\2EF\5\26\f\2FG\7"+
+		"\20\2\2GU\3\2\2\2HI\7\'\2\2IJ\7\'\2\2JK\5\f\7\2KO\7\17\2\2LN\5\22\n\2"+
+		"ML\3\2\2\2NQ\3\2\2\2OM\3\2\2\2OP\3\2\2\2PR\3\2\2\2QO\3\2\2\2RS\7\20\2"+
+		"\2SU\3\2\2\2T;\3\2\2\2TH\3\2\2\2U\13\3\2\2\2VW\7\21\2\2Wd\7\22\2\2XY\7"+
+		"\21\2\2Y^\5\16\b\2Z[\7\24\2\2[]\5\16\b\2\\Z\3\2\2\2]`\3\2\2\2^\\\3\2\2"+
+		"\2^_\3\2\2\2_a\3\2\2\2`^\3\2\2\2ab\7\22\2\2bd\3\2\2\2cV\3\2\2\2cX\3\2"+
+		"\2\2d\r\3\2\2\2ef\7\'\2\2fg\7\'\2\2g\17\3\2\2\2hj\5\22\n\2ih\3\2\2\2j"+
+		"k\3\2\2\2ki\3\2\2\2kl\3\2\2\2l\21\3\2\2\2mn\7\'\2\2no\7\'\2\2op\7#\2\2"+
+		"pq\5\30\r\2qr\7\23\2\2r\u008c\3\2\2\2st\7\n\2\2tu\7\21\2\2uv\5\30\r\2"+
+		"vw\7\22\2\2wx\5\22\n\2x\u008c\3\2\2\2yz\7\n\2\2z{\7\21\2\2{|\5\30\r\2"+
+		"|}\7\22\2\2}~\5\22\n\2~\177\7\13\2\2\177\u0080\5\22\n\2\u0080\u008c\3"+
+		"\2\2\2\u0081\u0082\7\f\2\2\u0082\u0083\7\21\2\2\u0083\u0084\5\30\r\2\u0084"+
+		"\u0085\7\22\2\2\u0085\u0086\5\22\n\2\u0086\u008c\3\2\2\2\u0087\u0088\5"+
+		"\30\r\2\u0088\u0089\7\23\2\2\u0089\u008c\3\2\2\2\u008a\u008c\5\24\13\2"+
+		"\u008bm\3\2\2\2\u008bs\3\2\2\2\u008by\3\2\2\2\u008b\u0081\3\2\2\2\u008b"+
+		"\u0087\3\2\2\2\u008b\u008a\3\2\2\2\u008c\23\3\2\2\2\u008d\u008e\7\17\2"+
+		"\2\u008e\u008f\5\20\t\2\u008f\u0090\7\20\2\2\u0090\25\3\2\2\2\u0091\u0092"+
+		"\7\t\2\2\u0092\u0098\7\23\2\2\u0093\u0094\7\t\2\2\u0094\u0095\5\30\r\2"+
+		"\u0095\u0096\7\23\2\2\u0096\u0098\3\2\2\2\u0097\u0091\3\2\2\2\u0097\u0093"+
+		"\3\2\2\2\u0098\27\3\2\2\2\u0099\u009a\b\r\1\2\u009a\u00bc\7\'\2\2\u009b"+
+		"\u009c\7\'\2\2\u009c\u009d\7#\2\2\u009d\u00bc\5\30\r\25\u009e\u00bc\5"+
+		"\32\16\2\u009f\u00a0\7\r\2\2\u00a0\u00a1\7\'\2\2\u00a1\u00bc\5\34\17\2"+
+		"\u00a2\u00a3\7\r\2\2\u00a3\u00a4\7\'\2\2\u00a4\u00a5\7\21\2\2\u00a5\u00bc"+
+		"\7\22\2\2\u00a6\u00a7\7\21\2\2\u00a7\u00a8\7\'\2\2\u00a8\u00a9\7\22\2"+
+		"\2\u00a9\u00aa\7\21\2\2\u00aa\u00ab\5\30\r\2\u00ab\u00ac\7\22\2\2\u00ac"+
+		"\u00bc\3\2\2\2\u00ad\u00ae\7\26\2\2\u00ae\u00bc\5\30\r\16\u00af\u00b0"+
+		"\7 \2\2\u00b0\u00bc\5\30\r\13\u00b1\u00b2\7\21\2\2\u00b2\u00b3\5\30\r"+
+		"\2\u00b3\u00b4\7\22\2\2\u00b4\u00bc\3\2\2\2\u00b5\u00b6\7\21\2\2\u00b6"+
+		"\u00b7\7\'\2\2\u00b7\u00bc\7\22\2\2\u00b8\u00bc\7)\2\2\u00b9\u00bc\7("+
+		"\2\2\u00ba\u00bc\7*\2\2\u00bb\u0099\3\2\2\2\u00bb\u009b\3\2\2\2\u00bb"+
+		"\u009e\3\2\2\2\u00bb\u009f\3\2\2\2\u00bb\u00a2\3\2\2\2\u00bb\u00a6\3\2"+
+		"\2\2\u00bb\u00ad\3\2\2\2\u00bb\u00af\3\2\2\2\u00bb\u00b1\3\2\2\2\u00bb"+
+		"\u00b5\3\2\2\2\u00bb\u00b8\3\2\2\2\u00bb\u00b9\3\2\2\2\u00bb\u00ba\3\2"+
+		"\2\2\u00bc\u00d5\3\2\2\2\u00bd\u00be\f\r\2\2\u00be\u00bf\t\2\2\2\u00bf"+
+		"\u00d4\5\30\r\16\u00c0\u00c1\f\f\2\2\u00c1\u00c2\t\3\2\2\u00c2\u00d4\5"+
+		"\30\r\r\u00c3\u00c4\f\n\2\2\u00c4\u00c5\7!\2\2\u00c5\u00d4\5\30\r\13\u00c6"+
+		"\u00c7\f\t\2\2\u00c7\u00c8\7\"\2\2\u00c8\u00d4\5\30\r\n\u00c9\u00ca\f"+
+		"\b\2\2\u00ca\u00cb\t\4\2\2\u00cb\u00d4\5\30\r\t\u00cc\u00cd\f\23\2\2\u00cd"+
+		"\u00ce\7$\2\2\u00ce\u00cf\7\'\2\2\u00cf\u00d4\5\34\17\2\u00d0\u00d1\f"+
+		"\20\2\2\u00d1\u00d2\7\16\2\2\u00d2\u00d4\7\'\2\2\u00d3\u00bd\3\2\2\2\u00d3"+
+		"\u00c0\3\2\2\2\u00d3\u00c3\3\2\2\2\u00d3\u00c6\3\2\2\2\u00d3\u00c9\3\2"+
+		"\2\2\u00d3\u00cc\3\2\2\2\u00d3\u00d0\3\2\2\2\u00d4\u00d7\3\2\2\2\u00d5"+
+		"\u00d3\3\2\2\2\u00d5\u00d6\3\2\2\2\u00d6\31\3\2\2\2\u00d7\u00d5\3\2\2"+
+		"\2\u00d8\u00d9\7\'\2\2\u00d9\u00da\7$\2\2\u00da\u00db\7\'\2\2\u00db\u00e5"+
+		"\5\34\17\2\u00dc\u00dd\7\'\2\2\u00dd\u00de\7$\2\2\u00de\u00e5\7\'\2\2"+
+		"\u00df\u00e0\7\'\2\2\u00e0\u00e1\7$\2\2\u00e1\u00e2\7\'\2\2\u00e2\u00e3"+
+		"\7#\2\2\u00e3\u00e5\5\30\r\2\u00e4\u00d8\3\2\2\2\u00e4\u00dc\3\2\2\2\u00e4"+
+		"\u00df\3\2\2\2\u00e5\33\3\2\2\2\u00e6\u00e7\7\21\2\2\u00e7\u00f4\7\22"+
+		"\2\2\u00e8\u00e9\7\21\2\2\u00e9\u00ee\5\30\r\2\u00ea\u00eb\7\24\2\2\u00eb"+
+		"\u00ed\5\30\r\2\u00ec\u00ea\3\2\2\2\u00ed\u00f0\3\2\2\2\u00ee\u00ec\3"+
+		"\2\2\2\u00ee\u00ef\3\2\2\2\u00ef\u00f1\3\2\2\2\u00f0\u00ee\3\2\2\2\u00f1"+
+		"\u00f2\7\22\2\2\u00f2\u00f4\3\2\2\2\u00f3\u00e6\3\2\2\2\u00f3\u00e8\3"+
+		"\2\2\2\u00f4\35\3\2\2\2\24!).9BOT^ck\u008b\u0097\u00bb\u00d3\u00d5\u00e4"+
+		"\u00ee\u00f3";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
