@@ -1,122 +1,130 @@
 grammar BantamJava;
 
-program :   class+                                         #programStart
-        ;
+program     :   classDefn+
+            ;
 
-class   :   CLASS ID LBRACE member*                        #cls
-        ;
+classDefn   :   CLASS ID LBRACE member* RBRACE
+            ;
 
-member  :   field                                          #fieldMember
-        |   method                                         #methodMember
-        ;
+type        :   VOID
+            |   INT
+            |   BOOLEAN
+            |   ID
+            ;
 
-field   :   ID ID SEMI                                     #fieldDeclaration
-        |   ID ID ASSIGN expr SEMI                         #fieldInstantiation
-        ;
+member      :   field
+            |   method
+            ;
 
-method  :   ID ID formalList LBRACE stmt* retn RBRACE      #methodWithReturn
-        |   ID ID formalList LBRACE stmt* RBRACE           #methodNoReturn
-        ;
+field       :   ID ID SEMI
+            |   ID ID ASSIGN expr SEMI
+            ;
 
-formalList: LPAREN RPAREN                                  #formalListEmpty
-          | LPAREN formal (COMMA formal)* RPAREN           #formalListPopulated
-          ;
+method      :   type ID formalList LBRACE stmt* retn RBRACE
+            ;
 
-formal: ID ID                                              #formalWithTypeAndID
-      ;
+formalList  :   LPAREN (formal (COMMA formal)*)* RPAREN
+            ;
 
-stmt: ID ID ASSIGN expr SEMI                               #statementDeclaration
-    | IF LPAREN expr RPAREN stmt                           #ifStatement
-    | IF LPAREN expr RPAREN stmt ELSE stmt                 #ifElseStatement
-    | WHILE LPAREN expr RPAREN stmt                        #whileStatement
-    | expr SEMI                                            #exprStatement
-    | LBRACE stmt* RBRACE                                  #blockListStatement
-    ;
+formal      :   ID ID
+            ;
 
-retn: RETURN SEMI
-    | RETURN expr SEMI
-    ;
 
-expr:    ID
-       | ID ASSIGN expr
-       | memberRef
-       | expr DOT ID argsList
-       | NEW ID argsList
-       | NEW ID LPAREN RPAREN
-       | expr INSTANCEOF ID
-       | LPAREN ID RPAREN LPAREN expr RPAREN
-       | MINUS expr
-       | expr (TIMES | DIVIDE | MODULUS) expr
-       | expr (PLUS | MINUS) expr
-       | expr (EQ | NE | LT | LE | GT | GE) expr
-       | NOT expr
-       | expr AND expr
-       | expr OR expr
-       | LPAREN expr RPAREN
-       | LPAREN ID RPAREN
-       | INT_CONST
-       | BOOLEAN_CONST
-       | STRING_CONST
-       ;
+stmt        :   ID ID ASSIGN expr SEMI
+            |   IF LPAREN expr RPAREN stmt
+            |   IF LPAREN expr RPAREN stmt ELSE stmt
+            |   WHILE LPAREN expr RPAREN stmt
+            |   expr SEMI
+            |   blockList
+            ;
 
-memberRef: ID DOT ID argsList
-         | ID DOT ID
-         | ID DOT ID ASSIGN expr
-         ;
+blockList   :   LBRACE stmt* RBRACE
+            ;
 
-argsList: LPAREN RPAREN
-        | LPAREN expr (COMMA expr)* RPAREN
-        ;
+retn        :   RETURN expr? SEMI
+            ;
+
+expr        :   ID
+            |   ID ASSIGN expr
+            |   memberRef
+            |   expr DOT ID argsList
+            |   NEW ID argsList
+            |   NEW ID LPAREN RPAREN
+            |   expr INSTANCEOF ID
+            |   LPAREN ID RPAREN LPAREN expr RPAREN
+            |   MINUS expr
+            |   expr (TIMES | DIVIDE | MODULUS) expr
+            |   expr (PLUS | MINUS) expr
+            |   NOT expr
+            |   expr AND expr
+            |   expr OR expr
+            |   expr (EQ | NE | LT | LE | GT | GE) expr
+            |   LPAREN expr RPAREN
+            |   LPAREN ID RPAREN
+            |   INT_CONST
+            |   (TRUE | FALSE)
+            |   STR_CONST
+            ;
+
+memberRef   :   ID DOT ID argsList
+            |   ID DOT ID
+            |   ID DOT ID ASSIGN expr
+            ;
+
+argsList    :   LPAREN (expr (COMMA expr)*)* RPAREN
+            ;
 
 
 // Tokens follow
 
-SPACE: [ \t\f]+ -> skip;
-NEWLINE: [\n\r]+ -> skip;
+SPACE       :   [ \t\f]+ -> skip;
+NEWLINE     :   [\n\r]+ -> skip;
 
-STRING_CONST_DELIM: '"';
-BADID: [0-9]+[a-zA-Z][a-zA-Z0-9]*;
+DQUOTE      :   '"';
+BADID       :   [0-9]+[a-zA-Z][a-zA-Z0-9]*;
 
-CLASS: 'class';
-EXTENDS: 'extends';
-RETURN: 'return';
-IF: 'if';
-ELSE: 'else';
-WHILE: 'while';
-NEW: 'new';
-INSTANCEOF: 'instanceof';
+CLASS       :   'class';
+EXTENDS     :   'extends';
+RETURN      :   'return';
+IF          :   'if';
+ELSE        :   'else';
+WHILE       :   'while';
+NEW         :   'new';
+INSTANCEOF  :   'instanceof';
+TRUE        :   'true';
+FALSE       :   'false';
+VOID        :   'void';
+INT         :   'int';
+BOOLEAN     :   'boolean';
 
-LBRACE: '{';
-RBRACE: '}';
-LPAREN: '(';
-RPAREN: ')';
-SEMI: ';';
-COMMA: ',';
+LBRACE      :   '{';
+RBRACE      :   '}';
+LPAREN      :   '(';
+RPAREN      :   ')';
+SEMI        :   ';';
+COMMA       :   ',';
 
-PLUS: '+';
-MINUS: '-';
-TIMES: '*';
-DIVIDE: '/';
-MODULUS: '%';
-EQ: '==';
-NE: '!=';
-LE: '<=';
-GE: '>=';
-LT: '<';
-GT: '>';
-NOT: '!';
-AND: '&&';
-OR: '||';
-ASSIGN: '=';
-DOT: '.';
-TRUE: 'true';
-FALSE: 'false';
+PLUS        :    '+';
+MINUS       :   '-';
+TIMES       :   '*';
+DIVIDE      :   '/';
+MODULUS     :   '%';
+EQ          :   '==';
+NE          :   '!=';
+LE          :   '<=';
+GE          :   '>=';
+LT          :   '<';
+GT          :   '>';
+NOT         :   '!';
+AND         :   '&&';
+OR          :   '||';
+ASSIGN      :   '=';
+DOT         :   '.';
 
-ID: [a-zA-Z][a-zA-Z0-9_]*;
-BOOLEAN_CONST: TRUE|FALSE;
-INT_CONST: [0-9]+;
-STRING_CONST: STRING_CONST_DELIM (ESC | .)*? STRING_CONST_DELIM;
+ID          : [a-zA-Z][a-zA-Z0-9_]*;
+INT_CONST   : [0-9]+;
+STR_CONST   : DQUOTE (ESC | .)*? DQUOTE;
 fragment ESC: '\\' [btnr"\\] ;
 
-ML_COMMENT: '/*' .*? '*/' -> skip;
-SL_COMMENT: '//'.*? '\r'? '\n' -> skip;
+ML_COMMENT  : '/*' .*? '*/' -> skip;
+SL_COMMENT  : '//'.*? '\r'? '\n' -> skip;
