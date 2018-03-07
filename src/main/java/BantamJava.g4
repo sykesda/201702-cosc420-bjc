@@ -3,7 +3,7 @@ grammar BantamJava;
 program     :   classDefn+
             ;
 
-classDefn   :   CLASS ID LBRACE member* RBRACE                 #class
+classDefn   :   CLASS ID (EXTENDS ID)? LBRACE member* RBRACE                 #class
             ;
 
 type        :   VOID                                           #typeVoid
@@ -28,35 +28,36 @@ formalList  :   LPAREN (formal (COMMA formal)*)* RPAREN        #lstOfFormals
 formal      :   type ID                                        #typeWithID
             ;
 
-stmt        :   type ID ASSIGN expr SEMI                       #stmtAssignIDExpr
-            |   IF LPAREN expr RPAREN stmt                     #stmtIf
-            |   IF LPAREN expr RPAREN stmt ELSE stmt           #stmtIfElse
-            |   WHILE LPAREN expr RPAREN stmt                  #stmtWhile
-            |   expr SEMI                                      #stmtExprSemi
+stmt        :   expr SEMI                                      #stmtExprSemi
             |   LBRACE stmt* RBRACE                            #stmtBlock
+            |   IF LPAREN expr RPAREN stmt (ELSE stmt)?        #stmtIf
+            //|   IF LPAREN expr RPAREN stmt            #stmtIfElse
+            |   WHILE LPAREN expr RPAREN stmt                  #stmtWhile
+            |   type ID ASSIGN expr SEMI                       #stmtLocalVarDecl
             ;
 
 retn        :   RETURN expr? SEMI                              #return
             ;
 
-expr        :   ID
-            |   ID ASSIGN expr
-            |   expr DOT ID argsList?
-            |   expr DOT ID ASSIGN expr
-            |   NEW ID argsList
-            |   expr INSTANCEOF type
-            |   LPAREN type RPAREN LPAREN expr RPAREN
-            |   MINUS expr
-            |   expr (TIMES | DIVIDE | MODULUS) expr
-            |   expr (PLUS | MINUS) expr
-            |   expr (EQ | NE | LT | LE | GT | GE) expr
-            |   NOT expr
-            |   expr AND expr
-            |   expr OR expr
-            |   LPAREN expr RPAREN
-            |   INT_CONST
-            |   (TRUE | FALSE)
-            |   STR_CONST
+expr        :   ID ASSIGN expr                                  #exprVarAssign
+            |   ID                                              #exprID
+            |   ID argsList?                                    #exprMethodCall
+            |   expr DOT ID argsList?                           #exprDotMethodCall
+            |   expr DOT ID ASSIGN expr                         #exprFieldAssign
+            |   NEW ID argsList                                 #exprNew
+            |   expr INSTANCEOF type                            #exprInstanceof
+            |   LPAREN type RPAREN LPAREN expr RPAREN           #exprTypeConversion
+            |   MINUS expr                                      #exprNegation
+            |   expr (TIMES | DIVIDE | MODULUS) expr            #exprMulDivMod
+            |   expr (PLUS | MINUS) expr                        #exprAddSub
+            |   expr (EQ | NE | LT | LE | GT | GE) expr         #exprRelational
+            |   NOT expr                                        #exprNot
+            |   expr AND expr                                   #exprAnd
+            |   expr OR expr                                    #exprOr
+            |   LPAREN expr RPAREN                              #exprParenthesized
+            |   INT_CONST                                       #exprInt
+            |   (TRUE | FALSE)                                  #exprBoolLiteral
+            |   STR_CONST                                       #expStrLiteral
             ;
 
 argsList    :   LPAREN (expr (COMMA expr)*)* RPAREN            #lstOfArgs
@@ -91,7 +92,7 @@ RPAREN      :   ')';
 SEMI        :   ';';
 COMMA       :   ',';
 
-PLUS        :    '+';
+PLUS        :   '+';
 MINUS       :   '-';
 TIMES       :   '*';
 DIVIDE      :   '/';
@@ -108,10 +109,10 @@ OR          :   '||';
 ASSIGN      :   '=';
 DOT         :   '.';
 
-ID          : [a-zA-Z][a-zA-Z0-9_]*;
-INT_CONST   : [0-9]+;
-STR_CONST   : DQUOTE (ESC | .)*? DQUOTE;
-fragment ESC: '\\' [btnr"\\] ;
+ID          :   [a-zA-Z][a-zA-Z0-9_]*;
+INT_CONST   :   [0-9]+;
+STR_CONST   :   DQUOTE (ESC | .)*? DQUOTE;
+fragment ESC:   '\\' [btnr"\\] ;
 
-ML_COMMENT  : '/*' .*? '*/' -> skip;
-SL_COMMENT  : '//'.*? '\r'? '\n' -> skip;
+ML_COMMENT  :   '/*' .*? '*/' -> skip;
+SL_COMMENT  :   '//'.*? '\r'? '\n' -> skip;
