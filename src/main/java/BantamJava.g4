@@ -3,82 +3,71 @@ grammar BantamJava;
 program     :   classDefn+
             ;
 
-classDefn   :   CLASS ID LBRACE member* RBRACE
+classDefn   :   CLASS ID LBRACE member* RBRACE                 #class
             ;
 
-type        :   VOID
-            |   INT
-            |   BOOLEAN
-            |   ID
+type        :   VOID                                           #typeVoid
+            |   INT                                            #typeInt
+            |   BOOLEAN                                        #typeBool
+            |   ID                                             #typeID
             ;
 
-member      :   field
-            |   method
+member      :   field                                          #memberField
+            |   method                                         #memberMethod
             ;
 
-field       :   ID ID SEMI
-            |   ID ID ASSIGN expr SEMI
+field       :   type ID (ASSIGN expr)? SEMI                    #fieldDeclOrInst
             ;
 
-method      :   type ID formalList LBRACE stmt* retn RBRACE
+method      :   type ID formalList LBRACE stmt* retn RBRACE    #methodDeclaration
             ;
 
-formalList  :   LPAREN (formal (COMMA formal)*)* RPAREN
+formalList  :   LPAREN (formal (COMMA formal)*)* RPAREN        #lstOfFormals
             ;
 
-formal      :   ID ID
+formal      :   type ID                                        #typeWithID
             ;
 
-
-stmt        :   ID ID ASSIGN expr SEMI
-            |   IF LPAREN expr RPAREN stmt
-            |   IF LPAREN expr RPAREN stmt ELSE stmt
-            |   WHILE LPAREN expr RPAREN stmt
-            |   expr SEMI
-            |   blockList
+stmt        :   type ID ASSIGN expr SEMI                       #stmtAssignIDExpr
+            |   IF LPAREN expr RPAREN stmt                     #stmtIf
+            |   IF LPAREN expr RPAREN stmt ELSE stmt           #stmtIfElse
+            |   WHILE LPAREN expr RPAREN stmt                  #stmtWhile
+            |   expr SEMI                                      #stmtExprSemi
+            |   LBRACE stmt* RBRACE                            #stmtBlock
             ;
 
-blockList   :   LBRACE stmt* RBRACE
-            ;
-
-retn        :   RETURN expr? SEMI
+retn        :   RETURN expr? SEMI                              #return
             ;
 
 expr        :   ID
             |   ID ASSIGN expr
-            |   memberRef
-            |   expr DOT ID argsList
+            |   expr DOT ID argsList?
+            |   expr DOT ID ASSIGN expr
             |   NEW ID argsList
-            |   NEW ID LPAREN RPAREN
-            |   expr INSTANCEOF ID
-            |   LPAREN ID RPAREN LPAREN expr RPAREN
+            |   expr INSTANCEOF type
+            |   LPAREN type RPAREN LPAREN expr RPAREN
             |   MINUS expr
             |   expr (TIMES | DIVIDE | MODULUS) expr
             |   expr (PLUS | MINUS) expr
+            |   expr (EQ | NE | LT | LE | GT | GE) expr
             |   NOT expr
             |   expr AND expr
             |   expr OR expr
-            |   expr (EQ | NE | LT | LE | GT | GE) expr
             |   LPAREN expr RPAREN
-            |   LPAREN ID RPAREN
             |   INT_CONST
             |   (TRUE | FALSE)
             |   STR_CONST
             ;
 
-memberRef   :   ID DOT ID argsList
-            |   ID DOT ID
-            |   ID DOT ID ASSIGN expr
+argsList    :   LPAREN (expr (COMMA expr)*)* RPAREN            #lstOfArgs
             ;
-
-argsList    :   LPAREN (expr (COMMA expr)*)* RPAREN
-            ;
-
 
 // Tokens follow
 
 SPACE       :   [ \t\f]+ -> skip;
 NEWLINE     :   [\n\r]+ -> skip;
+ML_COMMENT  : '/*' .*? '*/' -> skip;
+SL_COMMENT  : '//'.*? '\r'? '\n' -> skip;
 
 DQUOTE      :   '"';
 BADID       :   [0-9]+[a-zA-Z][a-zA-Z0-9]*;
@@ -125,6 +114,3 @@ ID          : [a-zA-Z][a-zA-Z0-9_]*;
 INT_CONST   : [0-9]+;
 STR_CONST   : DQUOTE (ESC | .)*? DQUOTE;
 fragment ESC: '\\' [btnr"\\] ;
-
-ML_COMMENT  : '/*' .*? '*/' -> skip;
-SL_COMMENT  : '//'.*? '\r'? '\n' -> skip;
