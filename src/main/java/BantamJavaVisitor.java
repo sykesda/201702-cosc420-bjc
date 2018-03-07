@@ -1,4 +1,4 @@
-// Generated from /Users/sykesda/IdeaProjects/2018/02/201702-cosc420-bjc/src/main/java/BantamJava.g4 by ANTLR 4.7
+// Generated from C:/Users/cgwid/IdeaProjects/201702-cosc420-bjc/src/main/java\BantamJava.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -100,19 +100,19 @@ public interface BantamJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStmtExprSemi(BantamJavaParser.StmtExprSemiContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code stmtBlock}
+	 * labeled alternative in {@link BantamJavaParser#stmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStmtBlock(BantamJavaParser.StmtBlockContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code stmtIf}
 	 * labeled alternative in {@link BantamJavaParser#stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitStmtIf(BantamJavaParser.StmtIfContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code stmtIfElse}
-	 * labeled alternative in {@link BantamJavaParser#stmt}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStmtIfElse(BantamJavaParser.StmtIfElseContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code stmtWhile}
 	 * labeled alternative in {@link BantamJavaParser#stmt}.
@@ -128,13 +128,6 @@ public interface BantamJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStmtLocalVarDecl(BantamJavaParser.StmtLocalVarDeclContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code stmtBlock}
-	 * labeled alternative in {@link BantamJavaParser#stmt}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStmtBlock(BantamJavaParser.StmtBlockContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code return}
 	 * labeled alternative in {@link BantamJavaParser#retn}.
 	 * @param ctx the parse tree
@@ -142,11 +135,138 @@ public interface BantamJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitReturn(BantamJavaParser.ReturnContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link BantamJavaParser#expr}.
+	 * Visit a parse tree produced by the {@code exprInt}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpr(BantamJavaParser.ExprContext ctx);
+	T visitExprInt(BantamJavaParser.ExprIntContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code exprMulDivMod}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprMulDivMod(BantamJavaParser.ExprMulDivModContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code exprNot}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprNot(BantamJavaParser.ExprNotContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code exprVarAssign}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprVarAssign(BantamJavaParser.ExprVarAssignContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code exprAddSub}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprAddSub(BantamJavaParser.ExprAddSubContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expStrLiteral}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpStrLiteral(BantamJavaParser.ExpStrLiteralContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code exprInstanceof}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprInstanceof(BantamJavaParser.ExprInstanceofContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code exprNew}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprNew(BantamJavaParser.ExprNewContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code exprOr}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprOr(BantamJavaParser.ExprOrContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code exprTypeConversion}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprTypeConversion(BantamJavaParser.ExprTypeConversionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code exprFieldAssign}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprFieldAssign(BantamJavaParser.ExprFieldAssignContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code exprParenthesized}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprParenthesized(BantamJavaParser.ExprParenthesizedContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code exprRelational}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprRelational(BantamJavaParser.ExprRelationalContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code exprBoolLiteral}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprBoolLiteral(BantamJavaParser.ExprBoolLiteralContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code exprAnd}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprAnd(BantamJavaParser.ExprAndContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code exprID}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprID(BantamJavaParser.ExprIDContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code exprMethodCall}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprMethodCall(BantamJavaParser.ExprMethodCallContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code exprNegation}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprNegation(BantamJavaParser.ExprNegationContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code exprDotMethodCall}
+	 * labeled alternative in {@link BantamJavaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprDotMethodCall(BantamJavaParser.ExprDotMethodCallContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code lstOfArgs}
 	 * labeled alternative in {@link BantamJavaParser#argsList}.
