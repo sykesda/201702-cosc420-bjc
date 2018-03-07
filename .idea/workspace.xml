@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9a815add-9a2e-4cd9-acc1-689f6cfbefa2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BantamJavaBaseVisitor.java" afterPath="$PROJECT_DIR$/src/main/java/BantamJavaBaseVisitor.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BantamJavaLexer.java" afterPath="$PROJECT_DIR$/src/main/java/BantamJavaLexer.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BantamJavaParser.java" afterPath="$PROJECT_DIR$/src/main/java/BantamJavaParser.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BantamJavaVisitor.java" afterPath="$PROJECT_DIR$/src/main/java/BantamJavaVisitor.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -411,7 +407,7 @@
       <workItem from="1520046950344" duration="1471000" />
       <workItem from="1520296689266" duration="3090000" />
       <workItem from="1520436816341" duration="1939000" />
-      <workItem from="1520439020999" duration="158000" />
+      <workItem from="1520439020999" duration="200000" />
     </task>
     <task id="LOCAL-00001" summary="add example1.cal and ExprJoyRide.java">
       <created>1518307721439</created>
@@ -483,15 +479,21 @@
       <option name="project" value="LOCAL" />
       <updated>1520439171685</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Just trying to get things right">
+      <created>1520439212869</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1520439212869</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46293000" />
+    <option name="totallyTimeSpent" value="46335000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-13" y="-13" width="2762" height="1770" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -502,7 +504,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11015737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29850745" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7228117" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -545,7 +547,8 @@
     <MESSAGE value="more grammar clean-up and fixed relational ops TODO" />
     <MESSAGE value="grammar cleaned up during class on 2018-03-05" />
     <MESSAGE value="Merge branch 'master' of https://github.com/sykesda/201702-cosc420-bjc&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/BantamJava.g4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/sykesda/201702-cosc420-bjc&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/BantamJava.g4" />
+    <MESSAGE value="Just trying to get things right" />
+    <option name="LAST_COMMIT_MESSAGE" value="Just trying to get things right" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
