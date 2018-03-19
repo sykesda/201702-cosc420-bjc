@@ -210,6 +210,16 @@ public interface BantamJavaListener extends ParseTreeListener {
 	 */
 	void exitStmtLocalVarDecl(BantamJavaParser.StmtLocalVarDeclContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link BantamJavaParser#blockStmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterBlockStmt(BantamJavaParser.BlockStmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link BantamJavaParser#blockStmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitBlockStmt(BantamJavaParser.BlockStmtContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code return}
 	 * labeled alternative in {@link BantamJavaParser#retn}.
 	 * @param ctx the parse tree

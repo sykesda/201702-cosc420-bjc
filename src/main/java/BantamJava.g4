@@ -2,10 +2,13 @@ grammar BantamJava;
 
 @header {import org.antlr.symtab.*;}
 
-program     :   classDefn+
+program returns [org.antlr.symtab.Scope scope]
+            :   classDefn+
             ;
 
-classDefn   :   CLASS className=ID (EXTENDS superclassName=ID)? LBRACE member* RBRACE                 #class
+classDefn returns [org.antlr.symtab.Scope scope]
+            :   CLASS className=ID (EXTENDS superclassName=ID)?
+                    LBRACE member* RBRACE                      #class
             ;
 
 type        :   VOID                                           #typeVoid
@@ -21,7 +24,8 @@ member      :   field                                          #memberField
 field       :   type ID (ASSIGN expr)? SEMI                    #fieldDeclOrInst
             ;
 
-method      :   type ID formalList LBRACE stmt* retn RBRACE    #methodDeclaration
+method returns [org.antlr.symtab.Scope scope]
+            :   type ID formalList LBRACE stmt* retn RBRACE    #methodDeclaration
             ;
 
 formalList  :   LPAREN (formal (COMMA formal)*)* RPAREN        #lstOfFormals
@@ -31,11 +35,15 @@ formal      :   type ID                                        #typeWithID
             ;
 
 stmt        :   expr SEMI                                      #stmtExprSemi
-            |   LBRACE stmt* RBRACE                            #stmtBlock
+            |   blockStmt                                      #stmtBlock
             |   IF LPAREN expr RPAREN stmt (ELSE stmt)?        #stmtIf
             //|   IF LPAREN expr RPAREN stmt            #stmtIfElse
             |   WHILE LPAREN expr RPAREN stmt                  #stmtWhile
             |   type ID ASSIGN expr SEMI                       #stmtLocalVarDecl
+            ;
+
+blockStmt returns [org.antlr.symtab.Scope scope] :
+                LBRACE stmt* RBRACE
             ;
 
 retn        :   RETURN expr? SEMI                              #return
