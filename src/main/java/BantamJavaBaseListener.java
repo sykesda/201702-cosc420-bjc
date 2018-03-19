@@ -220,6 +220,18 @@ public class BantamJavaBaseListener implements BantamJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterBlockStmt(BantamJavaParser.BlockStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBlockStmt(BantamJavaParser.BlockStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterReturn(BantamJavaParser.ReturnContext ctx) { }
 	/**
 	 * {@inheritDoc}
