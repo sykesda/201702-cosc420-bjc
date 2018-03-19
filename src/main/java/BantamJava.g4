@@ -1,9 +1,11 @@
 grammar BantamJava;
 
+@header {import org.antlr.symtab.*;}
+
 program     :   classDefn+
             ;
 
-classDefn   :   CLASS ID (EXTENDS ID)? LBRACE member* RBRACE                 #class
+classDefn   :   CLASS className=ID (EXTENDS superclassName=ID)? LBRACE member* RBRACE                 #class
             ;
 
 type        :   VOID                                           #typeVoid

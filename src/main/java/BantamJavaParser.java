@@ -1,4 +1,5 @@
-// Generated from C:/Users/cgwid/IdeaProjects/201702-cosc420-bjc/src/main/java\BantamJava.g4 by ANTLR 4.7
+// Generated from /Users/sykesda/IdeaProjects/2018/02/201702-cosc420-bjc/src/main/java/BantamJava.g4 by ANTLR 4.7
+import org.antlr.symtab.*;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -107,6 +108,14 @@ public class BantamJavaParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_program; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterProgram(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitProgram(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitProgram(this);
 			else return visitor.visitChildren(this);
@@ -159,13 +168,15 @@ public class BantamJavaParser extends Parser {
 		}
 	}
 	public static class ClassContext extends ClassDefnContext {
+		public Token className;
+		public Token superclassName;
 		public TerminalNode CLASS() { return getToken(BantamJavaParser.CLASS, 0); }
+		public TerminalNode LBRACE() { return getToken(BantamJavaParser.LBRACE, 0); }
+		public TerminalNode RBRACE() { return getToken(BantamJavaParser.RBRACE, 0); }
 		public List<TerminalNode> ID() { return getTokens(BantamJavaParser.ID); }
 		public TerminalNode ID(int i) {
 			return getToken(BantamJavaParser.ID, i);
 		}
-		public TerminalNode LBRACE() { return getToken(BantamJavaParser.LBRACE, 0); }
-		public TerminalNode RBRACE() { return getToken(BantamJavaParser.RBRACE, 0); }
 		public TerminalNode EXTENDS() { return getToken(BantamJavaParser.EXTENDS, 0); }
 		public List<MemberContext> member() {
 			return getRuleContexts(MemberContext.class);
@@ -174,6 +185,14 @@ public class BantamJavaParser extends Parser {
 			return getRuleContext(MemberContext.class,i);
 		}
 		public ClassContext(ClassDefnContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterClass(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitClass(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitClass(this);
@@ -192,7 +211,7 @@ public class BantamJavaParser extends Parser {
 			setState(29);
 			match(CLASS);
 			setState(30);
-			match(ID);
+			((ClassContext)_localctx).className = match(ID);
 			setState(33);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
@@ -201,7 +220,7 @@ public class BantamJavaParser extends Parser {
 				setState(31);
 				match(EXTENDS);
 				setState(32);
-				match(ID);
+				((ClassContext)_localctx).superclassName = match(ID);
 				}
 			}
 
@@ -251,6 +270,14 @@ public class BantamJavaParser extends Parser {
 		public TerminalNode INT() { return getToken(BantamJavaParser.INT, 0); }
 		public TypeIntContext(TypeContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterTypeInt(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitTypeInt(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitTypeInt(this);
 			else return visitor.visitChildren(this);
@@ -259,6 +286,14 @@ public class BantamJavaParser extends Parser {
 	public static class TypeIDContext extends TypeContext {
 		public TerminalNode ID() { return getToken(BantamJavaParser.ID, 0); }
 		public TypeIDContext(TypeContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterTypeID(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitTypeID(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitTypeID(this);
@@ -269,6 +304,14 @@ public class BantamJavaParser extends Parser {
 		public TerminalNode BOOLEAN() { return getToken(BantamJavaParser.BOOLEAN, 0); }
 		public TypeBoolContext(TypeContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterTypeBool(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitTypeBool(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitTypeBool(this);
 			else return visitor.visitChildren(this);
@@ -277,6 +320,14 @@ public class BantamJavaParser extends Parser {
 	public static class TypeVoidContext extends TypeContext {
 		public TerminalNode VOID() { return getToken(BantamJavaParser.VOID, 0); }
 		public TypeVoidContext(TypeContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterTypeVoid(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitTypeVoid(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitTypeVoid(this);
@@ -355,6 +406,14 @@ public class BantamJavaParser extends Parser {
 		}
 		public MemberMethodContext(MemberContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterMemberMethod(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitMemberMethod(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitMemberMethod(this);
 			else return visitor.visitChildren(this);
@@ -365,6 +424,14 @@ public class BantamJavaParser extends Parser {
 			return getRuleContext(FieldContext.class,0);
 		}
 		public MemberFieldContext(MemberContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterMemberField(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitMemberField(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitMemberField(this);
@@ -430,6 +497,14 @@ public class BantamJavaParser extends Parser {
 			return getRuleContext(ExprContext.class,0);
 		}
 		public FieldDeclOrInstContext(FieldContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterFieldDeclOrInst(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitFieldDeclOrInst(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitFieldDeclOrInst(this);
@@ -507,6 +582,14 @@ public class BantamJavaParser extends Parser {
 			return getRuleContext(StmtContext.class,i);
 		}
 		public MethodDeclarationContext(MethodContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterMethodDeclaration(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitMethodDeclaration(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitMethodDeclaration(this);
@@ -587,6 +670,14 @@ public class BantamJavaParser extends Parser {
 		}
 		public LstOfFormalsContext(FormalListContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterLstOfFormals(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitLstOfFormals(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitLstOfFormals(this);
 			else return visitor.visitChildren(this);
@@ -666,6 +757,14 @@ public class BantamJavaParser extends Parser {
 		public TerminalNode ID() { return getToken(BantamJavaParser.ID, 0); }
 		public TypeWithIDContext(FormalContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterTypeWithID(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitTypeWithID(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitTypeWithID(this);
 			else return visitor.visitChildren(this);
@@ -718,6 +817,14 @@ public class BantamJavaParser extends Parser {
 		}
 		public StmtBlockContext(StmtContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterStmtBlock(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitStmtBlock(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitStmtBlock(this);
 			else return visitor.visitChildren(this);
@@ -734,6 +841,14 @@ public class BantamJavaParser extends Parser {
 		}
 		public TerminalNode SEMI() { return getToken(BantamJavaParser.SEMI, 0); }
 		public StmtLocalVarDeclContext(StmtContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterStmtLocalVarDecl(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitStmtLocalVarDecl(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitStmtLocalVarDecl(this);
@@ -752,6 +867,14 @@ public class BantamJavaParser extends Parser {
 		}
 		public StmtWhileContext(StmtContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterStmtWhile(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitStmtWhile(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitStmtWhile(this);
 			else return visitor.visitChildren(this);
@@ -763,6 +886,14 @@ public class BantamJavaParser extends Parser {
 		}
 		public TerminalNode SEMI() { return getToken(BantamJavaParser.SEMI, 0); }
 		public StmtExprSemiContext(StmtContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterStmtExprSemi(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitStmtExprSemi(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitStmtExprSemi(this);
@@ -784,6 +915,14 @@ public class BantamJavaParser extends Parser {
 		}
 		public TerminalNode ELSE() { return getToken(BantamJavaParser.ELSE, 0); }
 		public StmtIfContext(StmtContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterStmtIf(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitStmtIf(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitStmtIf(this);
@@ -925,6 +1064,14 @@ public class BantamJavaParser extends Parser {
 		}
 		public ReturnContext(RetnContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterReturn(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitReturn(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitReturn(this);
 			else return visitor.visitChildren(this);
@@ -981,6 +1128,14 @@ public class BantamJavaParser extends Parser {
 		public TerminalNode INT_CONST() { return getToken(BantamJavaParser.INT_CONST, 0); }
 		public ExprIntContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprInt(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprInt(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprInt(this);
 			else return visitor.visitChildren(this);
@@ -998,6 +1153,14 @@ public class BantamJavaParser extends Parser {
 		public TerminalNode MODULUS() { return getToken(BantamJavaParser.MODULUS, 0); }
 		public ExprMulDivModContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprMulDivMod(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprMulDivMod(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprMulDivMod(this);
 			else return visitor.visitChildren(this);
@@ -1009,6 +1172,14 @@ public class BantamJavaParser extends Parser {
 			return getRuleContext(ExprContext.class,0);
 		}
 		public ExprNotContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprNot(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprNot(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprNot(this);
@@ -1022,6 +1193,14 @@ public class BantamJavaParser extends Parser {
 			return getRuleContext(ExprContext.class,0);
 		}
 		public ExprVarAssignContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprVarAssign(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprVarAssign(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprVarAssign(this);
@@ -1039,6 +1218,14 @@ public class BantamJavaParser extends Parser {
 		public TerminalNode MINUS() { return getToken(BantamJavaParser.MINUS, 0); }
 		public ExprAddSubContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprAddSub(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprAddSub(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprAddSub(this);
 			else return visitor.visitChildren(this);
@@ -1047,6 +1234,14 @@ public class BantamJavaParser extends Parser {
 	public static class ExpStrLiteralContext extends ExprContext {
 		public TerminalNode STR_CONST() { return getToken(BantamJavaParser.STR_CONST, 0); }
 		public ExpStrLiteralContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExpStrLiteral(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExpStrLiteral(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExpStrLiteral(this);
@@ -1063,6 +1258,14 @@ public class BantamJavaParser extends Parser {
 		}
 		public ExprInstanceofContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprInstanceof(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprInstanceof(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprInstanceof(this);
 			else return visitor.visitChildren(this);
@@ -1075,6 +1278,14 @@ public class BantamJavaParser extends Parser {
 			return getRuleContext(ArgsListContext.class,0);
 		}
 		public ExprNewContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprNew(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprNew(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprNew(this);
@@ -1090,6 +1301,14 @@ public class BantamJavaParser extends Parser {
 		}
 		public TerminalNode OR() { return getToken(BantamJavaParser.OR, 0); }
 		public ExprOrContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprOr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprOr(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprOr(this);
@@ -1113,6 +1332,14 @@ public class BantamJavaParser extends Parser {
 		}
 		public ExprTypeConversionContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprTypeConversion(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprTypeConversion(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprTypeConversion(this);
 			else return visitor.visitChildren(this);
@@ -1130,6 +1357,14 @@ public class BantamJavaParser extends Parser {
 		public TerminalNode ASSIGN() { return getToken(BantamJavaParser.ASSIGN, 0); }
 		public ExprFieldAssignContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprFieldAssign(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprFieldAssign(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprFieldAssign(this);
 			else return visitor.visitChildren(this);
@@ -1142,6 +1377,14 @@ public class BantamJavaParser extends Parser {
 		}
 		public TerminalNode RPAREN() { return getToken(BantamJavaParser.RPAREN, 0); }
 		public ExprParenthesizedContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprParenthesized(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprParenthesized(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprParenthesized(this);
@@ -1163,6 +1406,14 @@ public class BantamJavaParser extends Parser {
 		public TerminalNode GE() { return getToken(BantamJavaParser.GE, 0); }
 		public ExprRelationalContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprRelational(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprRelational(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprRelational(this);
 			else return visitor.visitChildren(this);
@@ -1172,6 +1423,14 @@ public class BantamJavaParser extends Parser {
 		public TerminalNode TRUE() { return getToken(BantamJavaParser.TRUE, 0); }
 		public TerminalNode FALSE() { return getToken(BantamJavaParser.FALSE, 0); }
 		public ExprBoolLiteralContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprBoolLiteral(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprBoolLiteral(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprBoolLiteral(this);
@@ -1188,6 +1447,14 @@ public class BantamJavaParser extends Parser {
 		public TerminalNode AND() { return getToken(BantamJavaParser.AND, 0); }
 		public ExprAndContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprAnd(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprAnd(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprAnd(this);
 			else return visitor.visitChildren(this);
@@ -1196,6 +1463,14 @@ public class BantamJavaParser extends Parser {
 	public static class ExprIDContext extends ExprContext {
 		public TerminalNode ID() { return getToken(BantamJavaParser.ID, 0); }
 		public ExprIDContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprID(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprID(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprID(this);
@@ -1209,6 +1484,14 @@ public class BantamJavaParser extends Parser {
 		}
 		public ExprMethodCallContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprMethodCall(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprMethodCall(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprMethodCall(this);
 			else return visitor.visitChildren(this);
@@ -1220,6 +1503,14 @@ public class BantamJavaParser extends Parser {
 			return getRuleContext(ExprContext.class,0);
 		}
 		public ExprNegationContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprNegation(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprNegation(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprNegation(this);
@@ -1236,6 +1527,14 @@ public class BantamJavaParser extends Parser {
 			return getRuleContext(ArgsListContext.class,0);
 		}
 		public ExprDotMethodCallContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterExprDotMethodCall(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitExprDotMethodCall(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitExprDotMethodCall(this);
@@ -1598,6 +1897,14 @@ public class BantamJavaParser extends Parser {
 			return getToken(BantamJavaParser.COMMA, i);
 		}
 		public LstOfArgsContext(ArgsListContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterLstOfArgs(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitLstOfArgs(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitLstOfArgs(this);

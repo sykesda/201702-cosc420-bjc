@@ -1,4 +1,5 @@
-// Generated from C:/Users/cgwid/IdeaProjects/201702-cosc420-bjc/src/main/java\BantamJava.g4 by ANTLR 4.7
+// Generated from /Users/sykesda/IdeaProjects/2018/02/201702-cosc420-bjc/src/main/java/BantamJava.g4 by ANTLR 4.7
+import org.antlr.symtab.*;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
