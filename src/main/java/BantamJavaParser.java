@@ -490,11 +490,12 @@ public class BantamJavaParser extends Parser {
 		}
 	}
 	public static class FieldDeclOrInstContext extends FieldContext {
+		public Token fieldName;
 		public TypeContext type() {
 			return getRuleContext(TypeContext.class,0);
 		}
-		public TerminalNode ID() { return getToken(BantamJavaParser.ID, 0); }
 		public TerminalNode SEMI() { return getToken(BantamJavaParser.SEMI, 0); }
+		public TerminalNode ID() { return getToken(BantamJavaParser.ID, 0); }
 		public TerminalNode ASSIGN() { return getToken(BantamJavaParser.ASSIGN, 0); }
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
@@ -526,7 +527,7 @@ public class BantamJavaParser extends Parser {
 			setState(56);
 			type();
 			setState(57);
-			match(ID);
+			((FieldDeclOrInstContext)_localctx).fieldName = match(ID);
 			setState(60);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
