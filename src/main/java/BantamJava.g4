@@ -21,7 +21,7 @@ member      :   field                                          #memberField
             |   method                                         #memberMethod
             ;
 
-field       :   type ID (ASSIGN expr)? SEMI                    #fieldDeclOrInst
+field       :   type fieldName=ID (ASSIGN expr)? SEMI          #fieldDeclOrInst
             ;
 
 method returns [org.antlr.symtab.Scope scope]
