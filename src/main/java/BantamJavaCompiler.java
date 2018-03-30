@@ -26,6 +26,9 @@ public class BantamJavaCompiler {
             BantamJavaListener listener = new ParserListener();
             ParseTreeWalker.DEFAULT.walk(listener, tree); // initiate walk of tree with listener in use of default walker
 
+            BantamJavaVisitor semantics = new SemanticAnalyzer();
+            semantics.visit(tree);
+
             // Print the parse tree
             System.out.println(tree.toStringTree(parser)); // print tree as text <label id="code.tour.main.7"/>
         }
