@@ -94,7 +94,7 @@ public class BantamJavaBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeWithID(BantamJavaParser.TypeWithIDContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFormalParameter(BantamJavaParser.FormalParameterContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

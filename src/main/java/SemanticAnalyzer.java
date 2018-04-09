@@ -1,8 +1,15 @@
 import java.util.HashMap;
 import java.util.Map;
+
+import org.antlr.symtab.ClassSymbol;
+import org.antlr.symtab.Scope;
 import org.antlr.v4.runtime.ParserRuleContext;
 
 public class SemanticAnalyzer extends BantamJavaBaseVisitor<ParserRuleContext> {
+
+    protected Scope globals = null;
+    protected Scope currentScope = null;
+
 
     /**
      * Visit a parse tree produced by {@link BantamJavaParser#program}.
@@ -12,6 +19,12 @@ public class SemanticAnalyzer extends BantamJavaBaseVisitor<ParserRuleContext> {
      */
     @Override
     public ParserRuleContext visitProgram(BantamJavaParser.ProgramContext ctx) {
+        globals = ctx.scope;
+
+        for (org.antlr.v4.runtime.tree.ParseTree child: ctx.children) {
+            this.visit(child);
+        }
+
         return ctx;
     }
 
@@ -23,7 +36,24 @@ public class SemanticAnalyzer extends BantamJavaBaseVisitor<ParserRuleContext> {
      * @return the visitor result
      */
     public ParserRuleContext visitClass(BantamJavaParser.ClassContext ctx) {
-        return ctx;
+        // Determine the superclass
+        String className = ctx.className.getText();
+//        ClassSymbol sym =
+//        if (ctx.superclassName == null) {
+//        }
+//        String superclassName = ctx.superclassName.getText();
+
+        // if the superclassName is null
+        // then use Object
+        // else make sure the superclass is valid
+        // TODO
+
+// THIS CODE BELOW WAS WRITTEN IN CLASS ON APRIL 9, BUT IS BETTER REPLACED WITH THE CODE BELOW
+//        for (org.antlr.v4.runtime.tree.ParseTree member: ctx.member()) {
+//            this.visit(member);
+//        }
+//        return ctx;
+        return visitChildren(ctx);
     }
 
     /**
@@ -126,13 +156,13 @@ public class SemanticAnalyzer extends BantamJavaBaseVisitor<ParserRuleContext> {
     }
 
     /**
-     * Visit a parse tree produced by the {@code typeWithID}
+     * Visit a parse tree produced by the {@code formalParameter}
      * labeled alternative in {@link BantamJavaParser#formal}.
      *
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public ParserRuleContext visitTypeWithID(BantamJavaParser.TypeWithIDContext ctx) {
+    public ParserRuleContext visitFormalParameter(BantamJavaParser.FormalParameterContext ctx) {
         return ctx;
     }
 
@@ -177,6 +207,13 @@ public class SemanticAnalyzer extends BantamJavaBaseVisitor<ParserRuleContext> {
      * @return the visitor result
      */
     public ParserRuleContext visitStmtWhile(BantamJavaParser.StmtWhileContext ctx) {
+        // Check WHILE statement semantics
+        // The expression must be of type boolean
+
+        // TODO
+        if (ctx.expr().exprType != null) {
+
+        }
         return ctx;
     }
 

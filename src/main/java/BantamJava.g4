@@ -31,7 +31,7 @@ method returns [org.antlr.symtab.Scope scope]
 formalList  :   LPAREN (formal (COMMA formal)*)* RPAREN        #lstOfFormals
             ;
 
-formal      :   type ID                                        #typeWithID
+formal      :   type ID                                        #formalParameter
             ;
 
 stmt        :   expr SEMI                                      #stmtExprSemi
@@ -49,7 +49,8 @@ blockStmt returns [org.antlr.symtab.Scope scope] :
 retn        :   RETURN expr? SEMI                              #return
             ;
 
-expr        :   ID ASSIGN expr                                  #exprVarAssign
+expr returns [org.antlr.symtab.Type exprType]
+            :   ID ASSIGN expr                                  #exprVarAssign
             |   ID                                              #exprID
             |   ID argsList?                                    #exprMethodCall
             |   expr DOT ID argsList?                           #exprDotMethodCall

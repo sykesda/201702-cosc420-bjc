@@ -756,23 +756,23 @@ public class BantamJavaParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
-	public static class TypeWithIDContext extends FormalContext {
+	public static class FormalParameterContext extends FormalContext {
 		public TypeContext type() {
 			return getRuleContext(TypeContext.class,0);
 		}
 		public TerminalNode ID() { return getToken(BantamJavaParser.ID, 0); }
-		public TypeWithIDContext(FormalContext ctx) { copyFrom(ctx); }
+		public FormalParameterContext(FormalContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterTypeWithID(this);
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).enterFormalParameter(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitTypeWithID(this);
+			if ( listener instanceof BantamJavaListener ) ((BantamJavaListener)listener).exitFormalParameter(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitTypeWithID(this);
+			if ( visitor instanceof BantamJavaVisitor ) return ((BantamJavaVisitor<? extends T>)visitor).visitFormalParameter(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -781,7 +781,7 @@ public class BantamJavaParser extends Parser {
 		FormalContext _localctx = new FormalContext(_ctx, getState());
 		enterRule(_localctx, 14, RULE_formal);
 		try {
-			_localctx = new TypeWithIDContext(_localctx);
+			_localctx = new FormalParameterContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(93);
@@ -1165,6 +1165,7 @@ public class BantamJavaParser extends Parser {
 	}
 
 	public static class ExprContext extends ParserRuleContext {
+		public org.antlr.symtab.Type exprType;
 		public ExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1173,6 +1174,7 @@ public class BantamJavaParser extends Parser {
 		public ExprContext() { }
 		public void copyFrom(ExprContext ctx) {
 			super.copyFrom(ctx);
+			this.exprType = ctx.exprType;
 		}
 	}
 	public static class ExprIntContext extends ExprContext {

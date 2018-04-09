@@ -87,12 +87,12 @@ public interface BantamJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLstOfFormals(BantamJavaParser.LstOfFormalsContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code typeWithID}
+	 * Visit a parse tree produced by the {@code formalParameter}
 	 * labeled alternative in {@link BantamJavaParser#formal}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTypeWithID(BantamJavaParser.TypeWithIDContext ctx);
+	T visitFormalParameter(BantamJavaParser.FormalParameterContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code stmtExprSemi}
 	 * labeled alternative in {@link BantamJavaParser#stmt}.
