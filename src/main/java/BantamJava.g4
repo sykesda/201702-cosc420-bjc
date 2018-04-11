@@ -52,9 +52,9 @@ retn        :   RETURN expr? SEMI                              #return
 expr returns [org.antlr.symtab.Type exprType]
             :   ID ASSIGN expr                                  #exprVarAssign
             |   ID                                              #exprID
-            |   ID argsList?                                    #exprMethodCall
-            |   expr DOT ID argsList?                           #exprDotMethodCall
-            |   expr DOT ID ASSIGN expr                         #exprFieldAssign
+            |   ID argsList                                     #exprMethodCall
+            |   expr DOT ID argsList                            #exprDotMethodCall
+            |   (THIS | SUPER) DOT ID ASSIGN expr               #exprFieldAssign
             |   NEW ID argsList                                 #exprNew
             |   expr INSTANCEOF type                            #exprInstanceof
             |   LPAREN type RPAREN LPAREN expr RPAREN           #exprTypeConversion
@@ -84,6 +84,8 @@ BADID       :   [0-9]+[a-zA-Z][a-zA-Z0-9]*;
 
 CLASS       :   'class';
 EXTENDS     :   'extends';
+THIS        :   'this';
+SUPER       :   'super';
 RETURN      :   'return';
 IF          :   'if';
 ELSE        :   'else';
