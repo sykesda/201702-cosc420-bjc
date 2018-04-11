@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 
 public class BantamJavaCompiler {
+
     public static void main(String[] args) throws Exception {
         // Create an input stream of characters for the lexer.
         if (args.length > 0) {
@@ -23,9 +24,10 @@ public class BantamJavaCompiler {
             // Launch the parser
             // https://github.com/antlr/antlr4/blob/master/doc/listeners.md
             BantamJavaParser.ProgramContext tree = parser.program();
-            BantamJavaListener listener = new ParserListener();
+            ParserListener listener = new ParserListener();
             ParseTreeWalker.DEFAULT.walk(listener, tree); // initiate walk of tree with listener in use of default walker
 
+//            BantamJavaVisitor semantics = new SemanticAnalyzer(listener.getGlobalScope());
             BantamJavaVisitor semantics = new SemanticAnalyzer();
             semantics.visit(tree);
 

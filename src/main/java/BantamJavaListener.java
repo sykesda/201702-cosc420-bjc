@@ -138,17 +138,17 @@ public interface BantamJavaListener extends ParseTreeListener {
 	 */
 	void exitLstOfFormals(BantamJavaParser.LstOfFormalsContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code typeWithID}
+	 * Enter a parse tree produced by the {@code formalParameter}
 	 * labeled alternative in {@link BantamJavaParser#formal}.
 	 * @param ctx the parse tree
 	 */
-	void enterTypeWithID(BantamJavaParser.TypeWithIDContext ctx);
+	void enterFormalParameter(BantamJavaParser.FormalParameterContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code typeWithID}
+	 * Exit a parse tree produced by the {@code formalParameter}
 	 * labeled alternative in {@link BantamJavaParser#formal}.
 	 * @param ctx the parse tree
 	 */
-	void exitTypeWithID(BantamJavaParser.TypeWithIDContext ctx);
+	void exitFormalParameter(BantamJavaParser.FormalParameterContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code stmtExprSemi}
 	 * labeled alternative in {@link BantamJavaParser#stmt}.

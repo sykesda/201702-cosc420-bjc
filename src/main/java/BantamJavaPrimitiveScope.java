@@ -1,13 +1,13 @@
 import org.antlr.symtab.*;
 
+
 public class BantamJavaPrimitiveScope extends org.antlr.symtab.PredefinedScope {
     /*
-
+        This scope defines the built-in classes [see pp. 54ff of the Lab Manual]
      */
     public BantamJavaPrimitiveScope(){
 
-        //Create Type Objects
-
+        // Create Type Objects
         PrimitiveType typeInt = new PrimitiveType("int");
         PrimitiveType typeBoolean = new PrimitiveType("boolean");
         PrimitiveType typeVoid = new PrimitiveType("void");
@@ -16,161 +16,159 @@ public class BantamJavaPrimitiveScope extends org.antlr.symtab.PredefinedScope {
         this.define(typeVoid);
 
 
-        //Create Class Objects
-        ClassSymbol Object = new ClassSymbol("Object");
-        Object.setEnclosingScope(this);
-        this.define(Object);
+        // Create Class Objects
+        ClassSymbol objectClassSymbol = new ClassSymbol("Object");
+        this.define(objectClassSymbol);
 
-        ClassSymbol Sys = new ClassSymbol("Sys");
-        Sys.setEnclosingScope(this);
-        Sys.setSuperClass("Object");
-        this.define(Sys);
+        ClassSymbol sysClassSymbol = new ClassSymbol("Sys");
+        sysClassSymbol.setSuperClass("Object");
+        this.define(sysClassSymbol);
 
-        ClassSymbol String = new ClassSymbol("String");
-        String.setEnclosingScope(this);
-        String.setSuperClass("Object");
-        this.define(String);
+        ClassSymbol stringClassSymbol = new ClassSymbol("String");
+        stringClassSymbol.setSuperClass("Object");
+        this.define(stringClassSymbol);
 
-        ClassSymbol TextIO = new ClassSymbol("TextIO");
-        TextIO.setEnclosingScope(this);
-        TextIO.setSuperClass("Object");
-        this.define(TextIO);
+        ClassSymbol textIOClassSymbol = new ClassSymbol("TextIO");
+        textIOClassSymbol.setSuperClass("Object");
+        this.define(textIOClassSymbol);
 
 
-        //Object Methods
-        MethodSymbol ObjectClone = new MethodSymbol("clone");
-        ObjectClone.setEnclosingScope(Object.getScope());
-        ObjectClone.setType(Object);
-        this.define(ObjectClone);
+        // Object Methods: clone(), equals(s), toString()
+        MethodSymbol objectCloneMethodSymbol = new MethodSymbol("clone");
+        objectCloneMethodSymbol.setType(objectClassSymbol);
+        objectClassSymbol.define(objectCloneMethodSymbol);
 
-        MethodSymbol ObjectEquals = new MethodSymbol("equals");
-        ObjectEquals.setEnclosingScope(Object.getScope());
-        ObjectEquals.setType(typeBoolean);
-        this.define(ObjectEquals);
+        MethodSymbol objectEqualsMethodSymbol = new MethodSymbol("equals");
+        objectEqualsMethodSymbol.setType(typeBoolean);
+        {
+            ParameterSymbol s = new ParameterSymbol("s");
+            s.setType(objectClassSymbol);
+            objectEqualsMethodSymbol.define(s);
+        }
+        objectClassSymbol.define(objectEqualsMethodSymbol);
 
-        MethodSymbol ObjectToString = new MethodSymbol("toString");
-        ObjectToString.setEnclosingScope(Object.getScope());
-        ObjectToString.setType(String);
-        this.define(ObjectToString);
-
-
-        //Sys Methods
-        MethodSymbol SysExit = new MethodSymbol("exit");
-        SysExit.setEnclosingScope(Sys.getScope());
-        SysExit.setType(typeVoid);
-        this.define(SysExit);
-        ParameterSymbol SysExitStatus = new ParameterSymbol("status");
-        SysExitStatus.setType(typeInt);
-        this.define(SysExitStatus);
-        //TODO figure out if anything more needs to be done with parameters
-
-        MethodSymbol SysTime = new MethodSymbol("time");
-        SysTime.setEnclosingScope(Sys.getScope());
-        SysTime.setType(typeInt);
-        this.define(SysTime);
-
-        MethodSymbol SysRandom = new MethodSymbol("random");
-        SysRandom.setEnclosingScope(Sys.getScope());
-        SysRandom.setType(typeInt);
-        this.define(SysRandom);
+        MethodSymbol objectToStringMethodSymbol = new MethodSymbol("toString");
+        objectToStringMethodSymbol.setType(stringClassSymbol);
+        objectClassSymbol.define(objectToStringMethodSymbol);
 
 
-        //String Methods
-        MethodSymbol StringLength = new MethodSymbol("length");
-        StringLength.setEnclosingScope(String.getScope());
-        StringLength.setType(typeInt);
-        this.define(StringLength);
+        //Sys Methods: exit(status), time(), and random()
+        MethodSymbol sysExitMethodSymbol = new MethodSymbol("exit");
+        sysExitMethodSymbol.setType(typeVoid);
+        {
+            ParameterSymbol status = new ParameterSymbol("status");
+            status.setType(typeInt);
+            sysExitMethodSymbol.define(status);
+        }
+        sysClassSymbol.define(sysExitMethodSymbol);
 
-        // ***** Problem with this.define(StringEquals);
-        MethodSymbol StringEquals = new MethodSymbol("equals");
-        StringEquals.setEnclosingScope(String.getScope());
-        StringEquals.setType(typeBoolean);
-        this.define(StringEquals);
-        ParameterSymbol StringEqualsS = new ParameterSymbol("s");
-        StringEqualsS.setType(Object);
-        this.define(StringEqualsS);
+        MethodSymbol sysTimeMethodSymbol = new MethodSymbol("time");
+        sysTimeMethodSymbol.setType(typeInt);
+        sysClassSymbol.define(sysTimeMethodSymbol);
 
-        MethodSymbol StringToString = new MethodSymbol("toString");
-        StringToString.setEnclosingScope(String.getScope());
-        StringToString.setType(String);
-        this.define(StringToString);
-
-        MethodSymbol StringSubstring = new MethodSymbol("substring");
-        StringSubstring.setEnclosingScope(String.getScope());
-        StringSubstring.setType(String);
-        this.define(StringSubstring);
-        ParameterSymbol StringSubstringBeginIndex = new ParameterSymbol("beginIndex");
-        StringSubstringBeginIndex.setType(typeInt);
-        this.define(StringSubstringBeginIndex);
-        ParameterSymbol StringSubstringEndIndex = new ParameterSymbol("endIndex");
-        StringSubstringEndIndex.setType(typeInt);
-        this.define(StringSubstringEndIndex);
-
-        MethodSymbol StringConcat = new MethodSymbol("concat");
-        StringConcat.setEnclosingScope(String.getScope());
-        StringConcat.setType(String);
-        this.define(StringConcat);
-        ParameterSymbol StringConcatS = new ParameterSymbol("s");
-        StringConcatS.setType(String);
-        this.define(StringConcatS);
+        MethodSymbol sysRandomMethodSymbol = new MethodSymbol("random");
+        sysRandomMethodSymbol.setType(typeInt);
+        sysClassSymbol.define(sysRandomMethodSymbol);
 
 
-        //TextIO methods
-        MethodSymbol TextIOReadFile = new MethodSymbol("readFile");
-        TextIOReadFile.setEnclosingScope(TextIO.getScope());
-        TextIOReadFile.setType(typeVoid);
-        this.define(TextIOReadFile);
-        ParameterSymbol TextIOReadFileFName = new ParameterSymbol("filename");
-        TextIOReadFileFName.setType(String);
-        this.define(TextIOReadFileFName);
+        //String Methods: length(), equals(s), toString(),
+        //                substring(beginIndex, endIndex), concat(s)
+        MethodSymbol stringLengthMethodSymbol = new MethodSymbol("length");
+        stringLengthMethodSymbol.setType(typeInt);
+        stringClassSymbol.define(stringLengthMethodSymbol);
 
-        MethodSymbol TextIOWriteFile = new MethodSymbol("writeFile");
-        TextIOWriteFile.setEnclosingScope(TextIO.getScope());
-        TextIOWriteFile.setType(typeVoid);
-        this.define(TextIOWriteFile);
-        ParameterSymbol TextIOWriteFileFName = new ParameterSymbol("filename");
-        TextIOWriteFileFName.setType(String);
-        this.define(TextIOWriteFileFName);
+        MethodSymbol stringEqualsMethodSymbol = new MethodSymbol("equals");
+        stringEqualsMethodSymbol.setType(typeBoolean);
+        {
+            ParameterSymbol s = new ParameterSymbol("s");
+            s.setType(objectClassSymbol);
+            stringEqualsMethodSymbol.define(s);
+        }
+        stringClassSymbol.define(stringEqualsMethodSymbol);
 
-        MethodSymbol TextIOReadStdin = new MethodSymbol("readStdin");
-        TextIOReadStdin.setEnclosingScope(TextIO.getScope());
-        TextIOReadStdin.setType(typeVoid);
-        this.define(TextIOReadStdin);
+        MethodSymbol stringToStringMethodSymbol = new MethodSymbol("toString");
+        stringToStringMethodSymbol.setType(stringClassSymbol);
+        stringClassSymbol.define(stringToStringMethodSymbol);
 
-        MethodSymbol TextIOWriteStdout = new MethodSymbol("writeStdout");
-        TextIOWriteStdout.setEnclosingScope(TextIO.getScope());
-        TextIOWriteStdout.setType(typeVoid);
-        this.define(TextIOWriteStdout);
+        MethodSymbol stringSubstringMethodSymbol = new MethodSymbol("substring");
+        stringSubstringMethodSymbol.setType(stringClassSymbol);
+        {
+            ParameterSymbol beginIndex = new ParameterSymbol("beginIndex");
+            beginIndex.setType(typeInt);
+            stringSubstringMethodSymbol.define(beginIndex);
+            ParameterSymbol endIndex = new ParameterSymbol("endIndex");
+            endIndex.setType(typeInt);
+            stringSubstringMethodSymbol.define(endIndex);
+        }
+        stringClassSymbol.define(stringSubstringMethodSymbol);
 
-        MethodSymbol TextIOWriteStderr = new MethodSymbol("writeStderr");
-        TextIOWriteStderr.setEnclosingScope(TextIO.getScope());
-        TextIOWriteStderr.setType(typeVoid);
-        this.define(TextIOWriteStderr);
+        MethodSymbol stringConcatMethodSymbol = new MethodSymbol("concat");
+        stringConcatMethodSymbol.setType(stringClassSymbol);
+        {
+            ParameterSymbol s = new ParameterSymbol("s");
+            s.setType(stringClassSymbol);
+            stringConcatMethodSymbol.define(s);
+        }
+        stringClassSymbol.define(stringConcatMethodSymbol);
 
-        MethodSymbol TextIOGetString = new MethodSymbol("getString");
-        TextIOGetString.setEnclosingScope(TextIO.getScope());
-        TextIOGetString.setType(String);
-        this.define(TextIOGetString);
 
-        MethodSymbol TextIOGetInt = new MethodSymbol("getInt");
-        TextIOGetInt.setEnclosingScope(TextIO.getScope());
-        TextIOGetInt.setType(typeInt);
-        this.define(TextIOGetInt);
+        //TextIO methods: readFile(filename), writeFile(filename), getString(),
+        //                readStdin(), writeStdout(), writeStderr(),
+        //                getString(), getInt(), putString(s), putInt(i)
+        MethodSymbol textIOReadFileMethodSymbol = new MethodSymbol("readFile");
+        textIOReadFileMethodSymbol.setType(typeVoid);
+        {
+            ParameterSymbol filename = new ParameterSymbol("filename");
+            filename.setType(stringClassSymbol);
+            textIOReadFileMethodSymbol.define(filename);
+        }
+        textIOClassSymbol.define(textIOReadFileMethodSymbol);
 
-        MethodSymbol TextIOPutString = new MethodSymbol("putString");
-        TextIOPutString.setEnclosingScope(TextIO.getScope());
-        TextIOPutString.setType(typeVoid);
-        this.define(TextIOPutString);
-        ParameterSymbol TextIOPutStringS = new ParameterSymbol("s");
-        TextIOPutStringS.setType(String);
-        this.define(TextIOPutStringS);
+        MethodSymbol textIOWriteFileMethodSymbol = new MethodSymbol("writeFile");
+        textIOWriteFileMethodSymbol.setType(typeVoid);
+        {
+            ParameterSymbol filename = new ParameterSymbol("filename");
+            filename.setType(stringClassSymbol);
+            textIOWriteFileMethodSymbol.define(filename);
+        }
+        textIOClassSymbol.define(textIOWriteFileMethodSymbol);
 
-        MethodSymbol TextIOPutInt = new MethodSymbol("putInt");
-        TextIOPutInt.setEnclosingScope(TextIO.getScope());
-        TextIOPutInt.setType(typeVoid);
-        this.define(TextIOPutInt);
-        ParameterSymbol TextIOPutIntI = new ParameterSymbol("i");
-        TextIOPutIntI.setType(typeInt);
-        this.define(TextIOPutIntI);
+        MethodSymbol textIOReadStdinMethodSymbol = new MethodSymbol("readStdin");
+        textIOReadStdinMethodSymbol.setType(typeVoid);
+        textIOClassSymbol.define(textIOReadStdinMethodSymbol);
+
+        MethodSymbol textIOWriteStdoutMethodSymbol = new MethodSymbol("writeStdout");
+        textIOWriteStdoutMethodSymbol.setType(typeVoid);
+        textIOClassSymbol.define(textIOWriteStdoutMethodSymbol);
+
+        MethodSymbol textIOWriteStderrMethodSymbol = new MethodSymbol("writeStderr");
+        textIOWriteStderrMethodSymbol.setType(typeVoid);
+        textIOClassSymbol.define(textIOWriteStderrMethodSymbol);
+
+        MethodSymbol textIOGetStringMethodSymbol = new MethodSymbol("getString");
+        textIOGetStringMethodSymbol.setType(stringClassSymbol);
+        textIOClassSymbol.define(textIOGetStringMethodSymbol);
+
+        MethodSymbol textIOGetIntMethodSymbol = new MethodSymbol("getInt");
+        textIOGetIntMethodSymbol.setType(typeInt);
+        textIOClassSymbol.define(textIOGetIntMethodSymbol);
+
+        MethodSymbol textIOPutStringMethodSymbol = new MethodSymbol("putString");
+        textIOPutStringMethodSymbol.setType(typeVoid);
+        {
+            ParameterSymbol s = new ParameterSymbol("s");
+            s.setType(stringClassSymbol);
+            textIOPutStringMethodSymbol.define(s);
+        }
+        textIOClassSymbol.define(textIOPutStringMethodSymbol);
+
+        MethodSymbol textIOPutIntMethodSymbol = new MethodSymbol("putInt");
+        textIOPutIntMethodSymbol.setType(typeVoid);
+        {
+            ParameterSymbol i = new ParameterSymbol("i");
+            i.setType(typeInt);
+            textIOPutIntMethodSymbol.define(i);
+        }
+        textIOClassSymbol.define(textIOPutIntMethodSymbol);
     }
 }

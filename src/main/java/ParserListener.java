@@ -6,9 +6,12 @@ import org.antlr.symtab.*;
 
 public class ParserListener extends BantamJavaBaseListener {
 
-    protected BantamJavaPrimitiveScope primitiveScope= null;
-    protected Scope globals = null;
+    protected BantamJavaPrimitiveScope primitiveScope= new BantamJavaPrimitiveScope();
+    protected Scope globalScope = new GlobalScope(primitiveScope);
     protected Scope currentScope = null;
+
+    public static boolean DEBUG = true;
+
 
     /**
      * {@inheritDoc}
@@ -17,11 +20,8 @@ public class ParserListener extends BantamJavaBaseListener {
      */
     @Override public void enterProgram(BantamJavaParser.ProgramContext ctx) {
         System.out.println("enterProgram" + ctx.toString());
-        primitiveScope = new BantamJavaPrimitiveScope();
-        globals = new GlobalScope(primitiveScope);
-        currentScope = globals;
+        currentScope = globalScope;
         ctx.scope = currentScope;
-
     }
     /**
      * {@inheritDoc}
@@ -40,18 +40,28 @@ public class ParserListener extends BantamJavaBaseListener {
      */
     @Override
     public void enterClass(BantamJavaParser.ClassContext ctx) {
-        System.out.print("enterClass: ");
-        System.out.print(ctx.className.getText());
-        if (ctx.superclassName != null) {
-            System.out.print(':' + ctx.superclassName.getText());
+        if (DEBUG) {
+            System.out.print("enterClass: ");
+            System.out.print(ctx.className.getText());
+            if (ctx.superclassName != null) {
+                System.out.print(':' + ctx.superclassName.getText());
+            }
+            System.out.println("");
         }
-        System.out.println("");
 
         String className = ctx.className.getText();
         ClassSymbol c = new ClassSymbol(className);
-        currentScope.define(c);
-        currentScope = new LocalScope(currentScope);
-        ctx.scope = currentScope;
+        c.setDefNode(ctx);
+        try {
+            currentScope.define(c);
+            currentScope = c;
+            ctx.scope = currentScope;
+        }
+        catch (IllegalArgumentException e) {
+            // This class uses a name that is already defined
+            System.err.println("Duplicate class name " + className);
+            // TODO - error recovery...
+        }
     }
 
     /**
@@ -61,6 +71,10 @@ public class ParserListener extends BantamJavaBaseListener {
      */
     @Override
     public void exitClass(BantamJavaParser.ClassContext ctx) {
+        if (DEBUG) {
+            System.out.print("exitClass: ");
+            System.out.println(ctx.className.getText());
+        }
         currentScope = currentScope.getEnclosingScope();
     }
 
@@ -164,7 +178,7 @@ public class ParserListener extends BantamJavaBaseListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override public void exitMemberMethod(BantamJavaParser.MemberMethodContext ctx) {
-        currentScope = currentScope.getEnclosingScope();
+
     }
     /**
      * {@inheritDoc}
@@ -173,6 +187,7 @@ public class ParserListener extends BantamJavaBaseListener {
      */
     @Override public void enterFieldDeclOrInst(BantamJavaParser.FieldDeclOrInstContext ctx) {
         FieldSymbol fieldSymbol = new FieldSymbol(ctx.ID().getText());
+        fieldSymbol.setDefNode(ctx);
         currentScope.define(fieldSymbol);
     }
     /**
@@ -187,10 +202,13 @@ public class ParserListener extends BantamJavaBaseListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override public void enterMethodDeclaration(BantamJavaParser.MethodDeclarationContext ctx) {
-        System.out.println("enterMethodDeclaration " + ctx.ID().getText());
+        if (DEBUG) {
+            System.out.println("enterMethodDeclaration " + ctx.ID().getText());
+        }
         MethodSymbol methodSymbol = new MethodSymbol(ctx.ID().getText());
+        methodSymbol.setDefNode(ctx);
         currentScope.define(methodSymbol);
-        currentScope = new LocalScope(currentScope);
+        currentScope = methodSymbol;
         ctx.scope = currentScope;
     }
     /**
@@ -199,7 +217,9 @@ public class ParserListener extends BantamJavaBaseListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override public void exitMethodDeclaration(BantamJavaParser.MethodDeclarationContext ctx) {
-        System.out.println("exitMethodDeclaration stmt:" + ctx.stmt().toString());
+        if (DEBUG) {
+            System.out.println("exitMethodDeclaration");
+        }
         currentScope = currentScope.getEnclosingScope();
     }
     /**
@@ -208,8 +228,6 @@ public class ParserListener extends BantamJavaBaseListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override public void enterLstOfFormals(BantamJavaParser.LstOfFormalsContext ctx) {
-        ParameterSymbol parameterSymbol = new ParameterSymbol(ctx.formal().toString());
-        currentScope.define(parameterSymbol);
     }
     /**
      * {@inheritDoc}
@@ -217,25 +235,27 @@ public class ParserListener extends BantamJavaBaseListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override public void exitLstOfFormals(BantamJavaParser.LstOfFormalsContext ctx) {
-        currentScope = currentScope.getEnclosingScope();
-    }
-    /**
-     * {@inheritDoc}
-     * <p>
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterTypeWithID(BantamJavaParser.TypeWithIDContext ctx) {
     }
 
     /**
      * {@inheritDoc}
-     * <p>
+     *
      * <p>The default implementation does nothing.</p>
      */
-    @Override
-    public void exitTypeWithID(BantamJavaParser.TypeWithIDContext ctx) {
+    @Override public void enterFormalParameter(BantamJavaParser.FormalParameterContext ctx) {
+        if (DEBUG) {
+            System.out.println("enterFormalParameter: " + ctx.type().getText() + " " + ctx.ID().getText());
+        }
+        ParameterSymbol parameterSymbol = new ParameterSymbol(ctx.ID().getText());
+        parameterSymbol.setDefNode(ctx);
+        currentScope.define(parameterSymbol);
     }
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override public void exitFormalParameter(BantamJavaParser.FormalParameterContext ctx) { }
 
     /**
      * {@inheritDoc}
@@ -281,6 +301,7 @@ public class ParserListener extends BantamJavaBaseListener {
     @Override
     public void enterBlockStmt(BantamJavaParser.BlockStmtContext ctx) {
         currentScope = new LocalScope(currentScope);
+        // There is no way to associate this with a context.
         ctx.scope = currentScope;
     }
 
