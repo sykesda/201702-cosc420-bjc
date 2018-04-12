@@ -359,6 +359,7 @@ public class ParserListener extends BantamJavaBaseListener {
      */
     @Override
     public void enterStmtLocalVarDecl(BantamJavaParser.StmtLocalVarDeclContext ctx) {
+        currentScope.define(new VariableSymbol(ctx.ID().getText()));
     }
 
     /**
