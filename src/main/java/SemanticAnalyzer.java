@@ -40,17 +40,21 @@ public class SemanticAnalyzer extends BantamJavaBaseVisitor<ParserRuleContext> {
      * @return the visitor result
      */
     public ParserRuleContext visitClass(BantamJavaParser.ClassContext ctx) {
-        // Determine the superclass
-        String className = ctx.className.getText();
         currentScope = ctx.scope;
-//        if (ctx.superclassName == null) {
-//        }
-//        String superclassName = ctx.superclassName.getText();
+        String className = ctx.className.getText();
+        ClassSymbol currentClassSymbol = (ClassSymbol) currentScope.resolve(className);
 
         // if the superclassName is null
         // then use Object
         // else make sure the superclass is valid
         // TODO
+        if (ctx.superclassName == null) {
+//            ClassSymbol object = (ClassSymbol) globals.resolve("Object");
+            currentClassSymbol.setSuperClass("Object");
+        } else {
+            currentClassSymbol.setSuperClass(ctx.superclassName.getText());
+            //TODO fetch the superclass and see if it's instanceof class symbol
+        }
 
         if (DEBUG) {
             System.out.print("Entering class Scope: ");
@@ -141,6 +145,7 @@ public class SemanticAnalyzer extends BantamJavaBaseVisitor<ParserRuleContext> {
 //        return ctx;
 //    }
 //
+
     /**
      * Visit a parse tree produced by the {@code methodDeclaration}
      * labeled alternative in {@link BantamJavaParser#method}.
@@ -245,6 +250,7 @@ public class SemanticAnalyzer extends BantamJavaBaseVisitor<ParserRuleContext> {
 //        return ctx;
 //    }
 //
+
     /**
      * Visit a parse tree produced by {@link BantamJavaParser#blockStmt}.
      *
