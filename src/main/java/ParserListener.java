@@ -55,6 +55,7 @@ public class ParserListener extends BantamJavaBaseListener {
         try {
             currentScope.define(c);
             currentScope = c;
+            ctx.symbol = c;
             ctx.scope = currentScope;
         }
         catch (IllegalArgumentException e) {

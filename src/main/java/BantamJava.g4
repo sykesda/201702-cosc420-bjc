@@ -6,7 +6,8 @@ program returns [org.antlr.symtab.Scope scope]
             :   classDefn+
             ;
 
-classDefn returns [org.antlr.symtab.Scope scope]
+classDefn returns [org.antlr.symtab.Scope scope,
+                   org.antlr.symtab.ClassSymbol symbol]
             :   CLASS className=ID (EXTENDS superclassName=ID)?
                     LBRACE member* RBRACE                      #class
             ;
@@ -21,25 +22,31 @@ member      :   field                                          #memberField
             |   method                                         #memberMethod
             ;
 
-field       :   type fieldName=ID (ASSIGN expr)? SEMI          #fieldDeclOrInst
+field returns [org.antlr.symtab.FieldSymbol symbol]
+            :   type fieldName=ID (ASSIGN expr)? SEMI          #fieldDeclOrInst
             ;
 
-method returns [org.antlr.symtab.Scope scope]
+method returns [org.antlr.symtab.Scope scope,
+                org.antlr.symtab.MethodSymbol symbol]
             :   type ID formalList LBRACE stmt* retn RBRACE    #methodDeclaration
             ;
 
 formalList  :   LPAREN (formal (COMMA formal)*)* RPAREN        #lstOfFormals
             ;
 
-formal      :   type ID                                        #formalParameter
+formal returns [org.antlr.symtab.ParameterSymbol symbol]
+            :   type ID                                        #formalParameter
             ;
 
 stmt        :   expr SEMI                                      #stmtExprSemi
             |   blockStmt                                      #stmtBlock
             |   IF LPAREN expr RPAREN stmt (ELSE stmt)?        #stmtIf
-            //|   IF LPAREN expr RPAREN stmt            #stmtIfElse
             |   WHILE LPAREN expr RPAREN stmt                  #stmtWhile
-            |   type ID ASSIGN expr SEMI                       #stmtLocalVarDecl
+            |   localVar                                       #stmtLocalVar
+            ;
+
+localVar returns [org.antlr.symtab.VariableSymbol symbol]
+            : type ID ASSIGN expr SEMI                         #stmtLocalVarDecl
             ;
 
 blockStmt returns [org.antlr.symtab.Scope scope] :
@@ -49,7 +56,7 @@ blockStmt returns [org.antlr.symtab.Scope scope] :
 retn        :   RETURN expr? SEMI                              #return
             ;
 
-expr returns [org.antlr.symtab.Type exprType]
+expr returns [org.antlr.symtab.Type exprType, int height]
             :   ID ASSIGN expr                                  #exprVarAssign
             |   ID                                              #exprID
             |   ID argsList                                     #exprMethodCall
@@ -61,7 +68,7 @@ expr returns [org.antlr.symtab.Type exprType]
             |   MINUS expr                                      #exprNegation
             |   expr (TIMES | DIVIDE | MODULUS) expr            #exprMulDivMod
             |   expr (PLUS | MINUS) expr                        #exprAddSub
-            |   expr (EQ | NE | LT | LE | GT | GE) expr         #exprRelational
+            |   expr operator=(EQ | NE | LT | LE | GT | GE) expr #exprRelational
             |   NOT expr                                        #exprNot
             |   expr AND expr                                   #exprAnd
             |   expr OR expr                                    #exprOr

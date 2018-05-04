@@ -1,4 +1,4 @@
-// Generated from /Users/sykesda/IdeaProjects/2018/02/201702-cosc420-bjc/src/main/java/BantamJava.g4 by ANTLR 4.7
+// Generated from C:/Users/cgwid/IdeaProjects/201702-cosc420-bjc/src/main/java\BantamJava.g4 by ANTLR 4.7
 import org.antlr.symtab.*;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -204,11 +204,31 @@ public class BantamJavaBaseListener implements BantamJavaListener {
 	 */
 	@Override public void exitStmtWhile(BantamJavaParser.StmtWhileContext ctx) { }
 	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterStmtLocalVarDecl(BantamJavaParser.StmtLocalVarDeclContext ctx) { }
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterStmtLocalVar(BantamJavaParser.StmtLocalVarContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitStmtLocalVar(BantamJavaParser.StmtLocalVarContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterStmtLocalVarDecl(BantamJavaParser.StmtLocalVarDeclContext ctx) {
+    }
 	/**
 	 * {@inheritDoc}
 	 *
