@@ -122,8 +122,15 @@ public interface BantamJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStmtWhile(BantamJavaParser.StmtWhileContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code stmtLocalVarDecl}
+	 * Visit a parse tree produced by the {@code stmtLocalVar}
 	 * labeled alternative in {@link BantamJavaParser#stmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStmtLocalVar(BantamJavaParser.StmtLocalVarContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code stmtLocalVarDecl}
+	 * labeled alternative in {@link BantamJavaParser#localVar}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */

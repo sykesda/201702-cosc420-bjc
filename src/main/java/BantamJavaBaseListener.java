@@ -208,6 +208,18 @@ public class BantamJavaBaseListener implements BantamJavaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterStmtLocalVar(BantamJavaParser.StmtLocalVarContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStmtLocalVar(BantamJavaParser.StmtLocalVarContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterStmtLocalVarDecl(BantamJavaParser.StmtLocalVarDeclContext ctx) { }
 	/**
 	 * {@inheritDoc}
