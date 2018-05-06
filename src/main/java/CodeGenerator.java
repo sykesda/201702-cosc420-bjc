@@ -1,4 +1,5 @@
 import java.io.*;
+
 import org.antlr.v4.runtime.ParserRuleContext;
 
 public class CodeGenerator extends BantamJavaBaseVisitor<ParserRuleContext> {
@@ -12,8 +13,7 @@ public class CodeGenerator extends BantamJavaBaseVisitor<ParserRuleContext> {
         // The name of the file is (for now, anyway) Bantam.j
         try {
             codeFile = new PrintStream("Bantam.j");
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.err.println("FATAL: Cannot open file Bantam.j");
             System.exit(2);
         }
@@ -94,7 +94,6 @@ public class CodeGenerator extends BantamJavaBaseVisitor<ParserRuleContext> {
         codeFile.println("    ; set up local variables");
 
 
-
         return super.visitMethodDeclaration(ctx);
     }
 
@@ -120,9 +119,6 @@ public class CodeGenerator extends BantamJavaBaseVisitor<ParserRuleContext> {
 
     @Override
     public ParserRuleContext visitStmtIf(BantamJavaParser.StmtIfContext ctx) {
-
-
-
         return super.visitStmtIf(ctx);
     }
 

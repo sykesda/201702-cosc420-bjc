@@ -46,7 +46,7 @@ public class ParserListener extends BantamJavaBaseListener {
             if (ctx.superclassName != null) {
                 System.out.print(':' + ctx.superclassName.getText());
             }
-            System.out.println("");
+            System.out.println();
         }
 
         String className = ctx.className.getText();
@@ -55,6 +55,7 @@ public class ParserListener extends BantamJavaBaseListener {
         try {
             currentScope.define(c);
             currentScope = c;
+            ctx.symbol = c;
             ctx.scope = currentScope;
             ctx.symbol = c;
         }

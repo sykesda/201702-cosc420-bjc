@@ -56,7 +56,7 @@ blockStmt returns [org.antlr.symtab.Scope scope] :
 retn        :   RETURN expr? SEMI                              #return
             ;
 
-expr returns [org.antlr.symtab.Type exprType]
+expr returns [org.antlr.symtab.Type exprType, int height]
             :   ID ASSIGN expr                                  #exprVarAssign
             |   ID                                              #exprID
             |   ID argsList                                     #exprMethodCall
@@ -68,7 +68,7 @@ expr returns [org.antlr.symtab.Type exprType]
             |   MINUS expr                                      #exprNegation
             |   expr (TIMES | DIVIDE | MODULUS) expr            #exprMulDivMod
             |   expr (PLUS | MINUS) expr                        #exprAddSub
-            |   expr (EQ | NE | LT | LE | GT | GE) expr         #exprRelational
+            |   expr operator=(EQ | NE | LT | LE | GT | GE) expr #exprRelational
             |   NOT expr                                        #exprNot
             |   expr AND expr                                   #exprAnd
             |   expr OR expr                                    #exprOr

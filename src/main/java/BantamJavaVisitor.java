@@ -1,4 +1,4 @@
-// Generated from /Users/sykesda/IdeaProjects/2018/02/201702-cosc420-bjc/src/main/java/BantamJava.g4 by ANTLR 4.7
+// Generated from C:/Users/cgwid/IdeaProjects/201702-cosc420-bjc/src/main/java\BantamJava.g4 by ANTLR 4.7
 import org.antlr.symtab.*;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -122,19 +122,21 @@ public interface BantamJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStmtWhile(BantamJavaParser.StmtWhileContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code stmtLocalVar}
+     * Visit a parse tree produced by the {@code stmtLocalVar}
 	 * labeled alternative in {@link BantamJavaParser#stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
-	 */
-	T visitStmtLocalVar(BantamJavaParser.StmtLocalVarContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code stmtLocalVarDecl}
-	 * labeled alternative in {@link BantamJavaParser#localVar}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStmtLocalVarDecl(BantamJavaParser.StmtLocalVarDeclContext ctx);
+     */
+    T visitStmtLocalVar(BantamJavaParser.StmtLocalVarContext ctx);
+
+    /**
+     * Visit a parse tree produced by the {@code stmtLocalVarDecl}
+     * labeled alternative in {@link BantamJavaParser#localVar}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitStmtLocalVarDecl(BantamJavaParser.StmtLocalVarDeclContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link BantamJavaParser#blockStmt}.
 	 * @param ctx the parse tree
