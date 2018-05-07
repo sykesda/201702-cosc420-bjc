@@ -125,7 +125,7 @@ public class BantamJavaPrimitiveScope extends org.antlr.symtab.PredefinedScope {
         textIOClassSymbol.define(textIOReadFileMethodSymbol);
 
         MethodSymbol textIOWriteFileMethodSymbol = new MethodSymbol("writeFile");
-        textIOWriteFileMethodSymbol.setType(typeVoid);
+        textIOWriteFileMethodSymbol.setType(textIOClassSymbol);
         {
             ParameterSymbol filename = new ParameterSymbol("filename");
             filename.setType(stringClassSymbol);
@@ -134,15 +134,15 @@ public class BantamJavaPrimitiveScope extends org.antlr.symtab.PredefinedScope {
         textIOClassSymbol.define(textIOWriteFileMethodSymbol);
 
         MethodSymbol textIOReadStdinMethodSymbol = new MethodSymbol("readStdin");
-        textIOReadStdinMethodSymbol.setType(typeVoid);
+        textIOReadStdinMethodSymbol.setType(textIOClassSymbol);
         textIOClassSymbol.define(textIOReadStdinMethodSymbol);
 
         MethodSymbol textIOWriteStdoutMethodSymbol = new MethodSymbol("writeStdout");
-        textIOWriteStdoutMethodSymbol.setType(typeVoid);
+        textIOWriteStdoutMethodSymbol.setType(textIOClassSymbol);
         textIOClassSymbol.define(textIOWriteStdoutMethodSymbol);
 
         MethodSymbol textIOWriteStderrMethodSymbol = new MethodSymbol("writeStderr");
-        textIOWriteStderrMethodSymbol.setType(typeVoid);
+        textIOWriteStderrMethodSymbol.setType(textIOClassSymbol);
         textIOClassSymbol.define(textIOWriteStderrMethodSymbol);
 
         MethodSymbol textIOGetStringMethodSymbol = new MethodSymbol("getString");
@@ -154,7 +154,7 @@ public class BantamJavaPrimitiveScope extends org.antlr.symtab.PredefinedScope {
         textIOClassSymbol.define(textIOGetIntMethodSymbol);
 
         MethodSymbol textIOPutStringMethodSymbol = new MethodSymbol("putString");
-        textIOPutStringMethodSymbol.setType(typeVoid);
+        textIOPutStringMethodSymbol.setType(textIOClassSymbol);
         {
             ParameterSymbol s = new ParameterSymbol("s");
             s.setType(stringClassSymbol);
@@ -163,7 +163,7 @@ public class BantamJavaPrimitiveScope extends org.antlr.symtab.PredefinedScope {
         textIOClassSymbol.define(textIOPutStringMethodSymbol);
 
         MethodSymbol textIOPutIntMethodSymbol = new MethodSymbol("putInt");
-        textIOPutIntMethodSymbol.setType(typeVoid);
+        textIOPutIntMethodSymbol.setType(textIOClassSymbol);
         {
             ParameterSymbol i = new ParameterSymbol("i");
             i.setType(typeInt);

@@ -12,7 +12,8 @@ classDefn returns [org.antlr.symtab.Scope scope,
                     LBRACE member* RBRACE                      #class
             ;
 
-type        :   VOID                                           #typeVoid
+type  returns [org.antlr.symtab.Type typeSymbol]
+            :   VOID                                           #typeVoid
             |   INT                                            #typeInt
             |   BOOLEAN                                        #typeBool
             |   ID                                             #typeID
@@ -62,7 +63,8 @@ expr returns [org.antlr.symtab.Type exprType, int height]
             |   ID argsList                                     #exprMethodCall
             |   expr DOT ID argsList                            #exprDotMethodCall
             |   (THIS | SUPER) DOT ID ASSIGN expr               #exprFieldAssign
-            |   NEW ID argsList                                 #exprNew
+//            |   NEW ID argsList                                 #exprNew
+            |   NEW ID LPAREN RPAREN                            #exprNew
             |   expr INSTANCEOF type                            #exprInstanceof
             |   LPAREN type RPAREN LPAREN expr RPAREN           #exprTypeConversion
             |   MINUS expr                                      #exprNegation

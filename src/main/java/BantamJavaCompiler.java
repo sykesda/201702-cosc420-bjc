@@ -27,15 +27,21 @@ public class BantamJavaCompiler {
             ParserListener listener = new ParserListener();
             ParseTreeWalker.DEFAULT.walk(listener, tree); // initiate walk of tree with listener in use of default walker
 
+            ErrorReporter reporter = new ErrorReporter();
+
             // BantamJavaVisitor semantics = new SemanticAnalyzer(listener.getGlobalScope());
-            BantamJavaVisitor semantics = new SemanticAnalyzer();
-            semantics.visit(tree);
+            BantamJavaVisitor semantics1 = new SemanticAnalyzer(reporter);
+            semantics1.visit(tree);
+            BantamJavaVisitor semantics2 = new SemanticAnalyzer2(reporter);
+            semantics2.visit(tree);
 
             // Print the parse tree
             System.out.println(tree.toStringTree(parser)); // print tree as text <label id="code.tour.main.7"/>
 
-            BantamJavaVisitor codeGen = new CodeGenerator();
-            codeGen.visit(tree);
+            if (reporter.getErrorCount() == 0) {
+                BantamJavaVisitor codeGen = new CodeGenerator(reporter);
+                codeGen.visit(tree);
+            }
         }
         else {
             System.err.println("ERROR: No source file specified.");

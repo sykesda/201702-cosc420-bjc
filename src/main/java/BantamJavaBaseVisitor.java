@@ -1,4 +1,4 @@
-// Generated from C:/Users/cgwid/IdeaProjects/201702-cosc420-bjc/src/main/java\BantamJava.g4 by ANTLR 4.7
+// Generated from /Users/sykesda/IdeaProjects/2018/02/201702-cosc420-bjc/src/main/java/BantamJava.g4 by ANTLR 4.7
 import org.antlr.symtab.*;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
@@ -124,26 +124,19 @@ public class BantamJavaBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 */
 	@Override public T visitStmtWhile(BantamJavaParser.StmtWhileContext ctx) { return visitChildren(ctx); }
 	/**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation returns the result of calling
-     * {@link #visitChildren} on {@code ctx}.</p>
-     */
-    @Override
-    public T visitStmtLocalVar(BantamJavaParser.StmtLocalVarContext ctx) {
-        return visitChildren(ctx);
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation returns the result of calling
-     * {@link #visitChildren} on {@code ctx}.</p>
-     */
-    @Override
-    public T visitStmtLocalVarDecl(BantamJavaParser.StmtLocalVarDeclContext ctx) {
-        return visitChildren(ctx);
-    }
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitStmtLocalVar(BantamJavaParser.StmtLocalVarContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitStmtLocalVarDecl(BantamJavaParser.StmtLocalVarDeclContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

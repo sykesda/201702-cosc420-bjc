@@ -8,6 +8,8 @@ class Main {
      * TextIO object for reading/writing
      */
     TextIO io = new TextIO();
+    int n;
+    String title = "Primes";
 
     /**
      * main method

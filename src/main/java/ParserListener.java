@@ -189,8 +189,9 @@ public class ParserListener extends BantamJavaBaseListener {
      */
     @Override public void enterFieldDeclOrInst(BantamJavaParser.FieldDeclOrInstContext ctx) {
         FieldSymbol fieldSymbol = new FieldSymbol(ctx.ID().getText());
-        fieldSymbol.setDefNode(ctx);
+        //fieldSymbol.setDefNode(ctx);
         currentScope.define(fieldSymbol);
+        ctx.symbol = fieldSymbol;
     }
     /**
      * {@inheritDoc}
@@ -208,10 +209,11 @@ public class ParserListener extends BantamJavaBaseListener {
             System.out.println("enterMethodDeclaration " + ctx.ID().getText());
         }
         MethodSymbol methodSymbol = new MethodSymbol(ctx.ID().getText());
-        methodSymbol.setDefNode(ctx);
+        //methodSymbol.setDefNode(ctx);
         currentScope.define(methodSymbol);
         currentScope = methodSymbol;
-        ctx.scope = currentScope;
+        ctx.scope = methodSymbol;
+        ctx.symbol = methodSymbol;
     }
     /**
      * {@inheritDoc}
@@ -251,6 +253,7 @@ public class ParserListener extends BantamJavaBaseListener {
         ParameterSymbol parameterSymbol = new ParameterSymbol(ctx.ID().getText());
         parameterSymbol.setDefNode(ctx);
         currentScope.define(parameterSymbol);
+        ctx.symbol = parameterSymbol;
     }
     /**
      * {@inheritDoc}
@@ -361,7 +364,9 @@ public class ParserListener extends BantamJavaBaseListener {
      */
     @Override
     public void enterStmtLocalVarDecl(BantamJavaParser.StmtLocalVarDeclContext ctx) {
-        currentScope.define(new VariableSymbol(ctx.ID().getText()));
+        VariableSymbol varSymbol = new VariableSymbol(ctx.ID().getText());
+        currentScope.define(varSymbol);
+        ctx.symbol = varSymbol; // DAS
     }
 
     /**

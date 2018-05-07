@@ -1,10 +1,17 @@
 import java.io.*;
+import java.nio.charset.CoderMalfunctionError;
 
+import com.sun.tools.javac.jvm.Code;
 import org.antlr.v4.runtime.ParserRuleContext;
 
 public class CodeGenerator extends BantamJavaBaseVisitor<ParserRuleContext> {
 
     private PrintStream codeFile = null;
+    private ErrorReporter reporter = null;
+
+    CodeGenerator(ErrorReporter reporter) {
+        this.reporter = reporter;
+    }
 
     @Override
     public ParserRuleContext visitProgram(BantamJavaParser.ProgramContext ctx) {
