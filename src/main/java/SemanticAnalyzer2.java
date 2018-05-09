@@ -1,5 +1,6 @@
 import org.antlr.symtab.*;
 import org.antlr.v4.runtime.ParserRuleContext;
+import static java.lang.Math.max;
 
 /**
  * <h1>Semantic Analysis - Pass 2</h1>
@@ -336,6 +337,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
 
         // While we don't check, there are MIN and MAX int values
         ctx.exprType = (Type)intSymbol;
+        ctx.height = 0;
         super.visitExprInt(ctx);
         return ctx;
     }
@@ -430,6 +432,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
         }
 
         ctx.exprType = (Type) intSymbol;
+        ctx.height = max(ctx.expr(0).height, ctx.expr(1).height);
 
         return ctx;
     }
@@ -727,9 +730,25 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
     }
 
     private void matchArgs(MethodSymbol methodSymbol, BantamJavaParser.ArgsListContext argsCtx) {
-        //TODO
-    }
+        int numOfParams = methodSymbol.getNumberOfParameters();
+        int numOfArgs = (argsCtx.getChildCount() - 1) / 2; //accounting for parens and commas
 
+        if (numOfParams != numOfArgs) {
+            reporter.errorMessage(argsCtx, "Number of arguments does not match number of required parameters");
+        } else {
+            String mismatches = "";
+            for (int i = 0; i <= numOfParams; i++) {
+                ParameterSymbol param = (ParameterSymbol) methodSymbol.getSymbols().get(i);
+                Type paramType = param.getType();
+                if (paramType != ((BantamJavaParser.LstOfArgsContext) argsCtx).expr(i).exprType) {
+                    mismatches = mismatches + Integer.toString(i) + " (" + paramType.getName() + ")" + param.getName() + ",";
+                }
+            }
+            if(!mismatches.equals("")){
+                reporter.errorMessage(argsCtx, "Type mismatch for argument(s) " + mismatches);
+            }
+        }
+    }
 //    /**
 //     * Visit a parse tree produced by the {@code lstOfArgs}
 //     * labeled alternative in {@link BantamJavaParser#argsList}.
@@ -737,8 +756,15 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
 //     * @param ctx the parse tree
 //     * @return the visitor result
 //     */
-//    public ParserRuleContext visitLstOfArgs(BantamJavaParser.LstOfArgsContext ctx) {
-//        // Syntax: LPAREN (expr (COMMA expr)*)* RPAREN
-//        return ctx;
-//    }
+    public ParserRuleContext visitLstOfArgs(BantamJavaParser.LstOfArgsContext ctx) {
+        // Syntax: LPAREN (expr (COMMA expr)*)* RPAREN
+        super.visitLstOfArgs(ctx);
+        ctx.height = 0;
+
+        for (int i = 0; i <= (ctx.getChildCount() - 1) / 2; i++) {
+            ctx.height = max(ctx.height, ctx.expr(i).height);
+        }
+
+        return ctx;
+    }
 }

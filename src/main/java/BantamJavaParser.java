@@ -1989,6 +1989,7 @@ public class BantamJavaParser extends Parser {
 	}
 
 	public static class ArgsListContext extends ParserRuleContext {
+		public int height;
 		public ArgsListContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1997,6 +1998,7 @@ public class BantamJavaParser extends Parser {
 		public ArgsListContext() { }
 		public void copyFrom(ArgsListContext ctx) {
 			super.copyFrom(ctx);
+			this.height = ctx.height;
 		}
 	}
 	public static class LstOfArgsContext extends ArgsListContext {

@@ -80,9 +80,9 @@ expr returns [org.antlr.symtab.Type exprType, int height]
             |   STR_CONST                                       #expStrLiteral
             ;
 
-argsList    :   LPAREN (expr (COMMA expr)*)* RPAREN            #lstOfArgs
+argsList returns [int height]
+            :   LPAREN (expr (COMMA expr)*)* RPAREN            #lstOfArgs
             ;
-
 // Tokens follow
 
 SPACE       :   [ \t\f]+ -> skip;

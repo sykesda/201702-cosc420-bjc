@@ -4,20 +4,8 @@
     <list default="true" id="9a815add-9a2e-4cd9-acc1-689f6cfbefa2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BantamJava.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BantamJava.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BantamJavaBaseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BantamJavaBaseListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BantamJavaBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BantamJavaBaseVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BantamJavaCompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BantamJavaCompiler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BantamJavaLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BantamJavaLexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BantamJavaListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BantamJavaListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BantamJavaParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BantamJavaParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BantamJavaPrimitiveScope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BantamJavaPrimitiveScope.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BantamJavaVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BantamJavaVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CodeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CodeGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ErrorReporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ErrorReporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ParserListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ParserListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SemanticAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SemanticAnalyzer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcode/Primes.btm" beforeDir="false" afterPath="$PROJECT_DIR$/testcode/Primes.btm" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,8 +40,8 @@
       <file leaf-file-name="SemanticAnalyzer2.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18525">
-              <caret line="729" selection-start-line="729" selection-end-line="729" />
+            <state relative-caret-position="715">
+              <caret line="769" column="1" lean-forward="true" selection-start-line="769" selection-start-column="1" selection-end-line="769" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -73,8 +61,8 @@
       <file leaf-file-name="BantamJava.g4" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/BantamJava.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="802">
-              <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
+            <state relative-caret-position="442">
+              <caret line="80" column="13" lean-forward="true" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
               <folding>
                 <element signature="e#21#57#1" expanded="true" />
               </folding>
@@ -139,7 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>visitMeth</find>
       <find>LstOf</find>
       <find>MethodDe</find>
       <find>errorMessage(</find>
@@ -167,8 +154,9 @@
       <find>Add</find>
       <find>exprid</find>
       <find>field</find>
-      <find>formal</find>
       <find>fieldName</find>
+      <find>max</find>
+      <find>formal</find>
     </findStrings>
     <replaceStrings>
       <replace>ExprParser</replace>
@@ -215,15 +203,15 @@
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/AssemblyCode.java" />
         <option value="$PROJECT_DIR$/src/main/java/JasminCode.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BantamJava.g4" />
         <option value="$PROJECT_DIR$/src/main/java/ErrorReporter.java" />
         <option value="$PROJECT_DIR$/src/main/java/CodeGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/ParserListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/BantamJavaCompiler.java" />
         <option value="$PROJECT_DIR$/src/main/java/BantamJavaPrimitiveScope.java" />
         <option value="$PROJECT_DIR$/src/main/java/SemanticAnalyzer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java" />
         <option value="$PROJECT_DIR$/testcode/Primes.btm" />
+        <option value="$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BantamJava.g4" />
       </list>
     </option>
   </component>
@@ -256,7 +244,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -517,7 +505,7 @@
       <workItem from="1524071283808" duration="530000" />
       <workItem from="1524236133928" duration="1452000" />
       <workItem from="1524618378688" duration="3401000" />
-      <workItem from="1525029423858" duration="52142000" />
+      <workItem from="1525029423858" duration="53205000" />
     </task>
     <task id="LOCAL-00001" summary="add example1.cal and ExprJoyRide.java">
       <created>1518307721439</created>
@@ -645,14 +633,21 @@
       <option name="project" value="LOCAL" />
       <updated>1525643987565</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Clean up some code">
+      <created>1525706453919</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1525706453919</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169685000" />
+    <option name="totallyTimeSpent" value="170748000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="1024" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -670,7 +665,7 @@
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.7224622" />
       <window_info id="Capture Tool" order="1" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5210728" weight="0.28594506" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5210728" weight="0.28487754" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="ANTLR Preview" order="10" weight="0.66918105" />
       <window_info id="Structure" order="5" sideWeight="0.4789272" side_tool="true" weight="0.29256082" />
@@ -678,7 +673,7 @@
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="6" side_tool="true" weight="0.32956383" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4875312" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.48704103" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
@@ -731,6 +726,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="add example1.cal and ExprJoyRide.java" />
     <MESSAGE value="eliminate compiler warnings using maven plugins" />
     <MESSAGE value="functioning interpreter" />
@@ -751,7 +748,8 @@
     <MESSAGE value="Fix visitor handling of current scope, define variables in local scope in listener" />
     <MESSAGE value="Add code generator code" />
     <MESSAGE value="Change semantic analysis to have two passes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change semantic analysis to have two passes" />
+    <MESSAGE value="Clean up some code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean up some code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -764,7 +762,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java</url>
-          <line>631</line>
+          <line>634</line>
           <properties />
           <option name="timeStamp" value="63" />
         </line-breakpoint>
@@ -776,7 +774,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java</url>
-          <line>107</line>
+          <line>108</line>
           <properties />
           <option name="timeStamp" value="67" />
         </line-breakpoint>
@@ -789,6 +787,11 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>currentClassSymbol.getFields()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>ctx.expr()</expression-string>
         <language-id>JAVA</language-id>
@@ -828,11 +831,6 @@
       </expression>
       <expression>
         <expression-string>ctx.retn()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>retn.expr()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1171,16 +1169,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BantamJava.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="802">
-          <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
-          <folding>
-            <element signature="e#21#57#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SemanticAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2154">
@@ -1200,10 +1188,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BantamJava.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="80" column="13" lean-forward="true" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
+          <folding>
+            <element signature="e#21#57#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18525">
-          <caret line="729" selection-start-line="729" selection-end-line="729" />
+        <state relative-caret-position="715">
+          <caret line="769" column="1" lean-forward="true" selection-start-line="769" selection-start-column="1" selection-end-line="769" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
