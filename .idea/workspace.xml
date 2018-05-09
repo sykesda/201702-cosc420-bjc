@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9a815add-9a2e-4cd9-acc1-689f6cfbefa2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BantamJava.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BantamJava.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BantamJavaParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BantamJavaParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,8 +38,8 @@
       <file leaf-file-name="SemanticAnalyzer2.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="715">
-              <caret line="769" column="1" lean-forward="true" selection-start-line="769" selection-start-column="1" selection-end-line="769" selection-end-column="1" />
+            <state relative-caret-position="731">
+              <caret line="386" column="7" lean-forward="true" selection-start-line="386" selection-start-column="7" selection-end-line="386" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -127,7 +125,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>LstOf</find>
       <find>MethodDe</find>
       <find>errorMessage(</find>
       <find>CheckValidType</find>
@@ -157,6 +154,7 @@
       <find>fieldName</find>
       <find>max</find>
       <find>formal</find>
+      <find>ctx.height</find>
     </findStrings>
     <replaceStrings>
       <replace>ExprParser</replace>
@@ -210,8 +208,8 @@
         <option value="$PROJECT_DIR$/src/main/java/BantamJavaPrimitiveScope.java" />
         <option value="$PROJECT_DIR$/src/main/java/SemanticAnalyzer.java" />
         <option value="$PROJECT_DIR$/testcode/Primes.btm" />
-        <option value="$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java" />
         <option value="$PROJECT_DIR$/src/main/java/BantamJava.g4" />
+        <option value="$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java" />
       </list>
     </option>
   </component>
@@ -505,7 +503,7 @@
       <workItem from="1524071283808" duration="530000" />
       <workItem from="1524236133928" duration="1452000" />
       <workItem from="1524618378688" duration="3401000" />
-      <workItem from="1525029423858" duration="53205000" />
+      <workItem from="1525029423858" duration="54999000" />
     </task>
     <task id="LOCAL-00001" summary="add example1.cal and ExprJoyRide.java">
       <created>1518307721439</created>
@@ -640,15 +638,21 @@
       <option name="project" value="LOCAL" />
       <updated>1525706453919</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Implement matchArgs and visitLstOfArgs() in SemanticAnalyzer2">
+      <created>1525872020755</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1525872020755</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="170748000" />
+    <option name="totallyTimeSpent" value="172542000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -665,7 +669,7 @@
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.7224622" />
       <window_info id="Capture Tool" order="1" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5210728" weight="0.28487754" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5210728" visible="true" weight="0.19222577" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="ANTLR Preview" order="10" weight="0.66918105" />
       <window_info id="Structure" order="5" sideWeight="0.4789272" side_tool="true" weight="0.29256082" />
@@ -749,7 +753,8 @@
     <MESSAGE value="Add code generator code" />
     <MESSAGE value="Change semantic analysis to have two passes" />
     <MESSAGE value="Clean up some code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean up some code" />
+    <MESSAGE value="Implement matchArgs and visitLstOfArgs() in SemanticAnalyzer2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement matchArgs and visitLstOfArgs() in SemanticAnalyzer2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -762,7 +767,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java</url>
-          <line>634</line>
+          <line>645</line>
           <properties />
           <option name="timeStamp" value="63" />
         </line-breakpoint>
@@ -1200,8 +1205,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="715">
-          <caret line="769" column="1" lean-forward="true" selection-start-line="769" selection-start-column="1" selection-end-line="769" selection-end-column="1" />
+        <state relative-caret-position="731">
+          <caret line="386" column="7" lean-forward="true" selection-start-line="386" selection-start-column="7" selection-end-line="386" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

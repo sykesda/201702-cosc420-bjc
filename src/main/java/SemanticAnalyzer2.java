@@ -337,7 +337,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
 
         // While we don't check, there are MIN and MAX int values
         ctx.exprType = (Type)intSymbol;
-        ctx.height = 0;
+        ctx.height = 1;
         super.visitExprInt(ctx);
         return ctx;
     }
@@ -361,6 +361,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
             reporter.errorMessage(ctx, "Incompatible types: Must be of type int.");
         }
         ctx.exprType = (Type)intSymbol;
+        ctx.height = max(ctx.expr(0).height, ctx.expr(1).height) + 1;
 
         return ctx;
     }
@@ -379,6 +380,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
             reporter.errorMessage(ctx, "Incompatible type: expr must be type boolean.");
         }
         ctx.exprType = (Type)booleanSymbol;
+        ctx.height = ctx.expr().height + 1;
         return ctx;
     }
 
@@ -411,6 +413,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
             ctx.exprType = (Type)objectSymbol;
         }
 
+        ctx.height = ctx.expr().height + 1;
         return ctx;
     }
 
@@ -447,6 +450,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
     public ParserRuleContext visitExpStrLiteral(BantamJavaParser.ExpStrLiteralContext ctx) {
         // Syntax: STR_CONST
         ctx.exprType = (Type)stringSymbol;
+        ctx.height = 0;
         return ctx;
     }
 
@@ -469,6 +473,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
         }
 
         ctx.exprType = (Type) booleanSymbol;
+        ctx.height = ctx.expr().height + 1;
 
         return ctx;
     }
@@ -493,6 +498,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
             ctx.exprType = (Type)objectSymbol;  // recover as new Object()
         }
 
+        ctx.height = 1;  // ???
         return ctx;
     }
 
@@ -514,6 +520,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
         }
 
         ctx.exprType = (Type) booleanSymbol;
+        ctx.height = max(ctx.expr(0).height, ctx.expr(1).height);
 
         return ctx;
     }
@@ -551,6 +558,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
         super.visitExprParenthesized(ctx);
 
         ctx.exprType = ctx.expr().exprType;
+        ctx.height = ctx.expr().height;
         return ctx;
     }
 
@@ -581,6 +589,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
             }
         }
         ctx.exprType = (Type) booleanSymbol;
+        ctx.height = max(ctx.expr(0).height, ctx.expr(1).height);
 
         return ctx;
     }
@@ -594,6 +603,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
      */
     public ParserRuleContext visitExprBoolLiteral(BantamJavaParser.ExprBoolLiteralContext ctx) {
         ctx.exprType = (org.antlr.symtab.PrimitiveType) currentScope.resolve("boolean");
+        ctx.height = 0;
         return ctx;
     }
 
@@ -615,6 +625,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
         }
 
         ctx.exprType = (Type) booleanSymbol;
+        ctx.height = max(ctx.expr(0).height, ctx.expr(1).height);
 
         return ctx;
     }
@@ -642,7 +653,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
             VariableSymbol varSymbol = (VariableSymbol) symbol;
             ctx.exprType = varSymbol.getType();
         }
-
+        ctx.height = 0;
         return ctx;
     }
 
@@ -669,7 +680,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
             reporter.errorMessage(ctx, methodName + " is not a method");
             ctx.exprType = (Type) voidSymbol;  // RECOVER
         }
-
+        ctx.height = ctx.argsList().children.size() + 1;  // 1 for this
         return ctx;
     }
 
@@ -689,6 +700,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
             reporter.errorMessage(ctx, "Incompatible type: must be of type int");
         }
         ctx.exprType = (Type) intSymbol;
+        ctx.height = ctx.height + 1;
 
         return ctx;
     }
@@ -726,6 +738,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
         }
 
         ctx.exprType = methodReturnType;
+        ctx.height = ctx.argsList().children.size() + 1;  // 1 for this
         return ctx;
     }
 
