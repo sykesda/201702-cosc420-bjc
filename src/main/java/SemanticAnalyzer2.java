@@ -360,8 +360,9 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
         if (leftType != intSymbol || rightType != intSymbol) {
             reporter.errorMessage(ctx, "Incompatible types: Must be of type int.");
         }
+
         ctx.exprType = (Type)intSymbol;
-        ctx.height = max(ctx.expr(0).height, ctx.expr(1).height) + 1;
+        ctx.height = opStackDepth(ctx.expr(0).height, ctx.expr(1).height);
 
         return ctx;
     }
@@ -380,7 +381,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
             reporter.errorMessage(ctx, "Incompatible type: expr must be type boolean.");
         }
         ctx.exprType = (Type)booleanSymbol;
-        ctx.height = ctx.expr().height + 1;
+        ctx.height = ctx.expr().height;
         return ctx;
     }
 
@@ -413,7 +414,8 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
             ctx.exprType = (Type)objectSymbol;
         }
 
-        ctx.height = ctx.expr().height + 1;
+        // We'll need to duplicate the right expr value and then store it
+        ctx.height = max(2, ctx.expr().height);
         return ctx;
     }
 
@@ -435,7 +437,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
         }
 
         ctx.exprType = (Type) intSymbol;
-        ctx.height = max(ctx.expr(0).height, ctx.expr(1).height);
+        ctx.height = opStackDepth(ctx.expr(0).height, ctx.expr(1).height);
 
         return ctx;
     }
@@ -450,7 +452,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
     public ParserRuleContext visitExpStrLiteral(BantamJavaParser.ExpStrLiteralContext ctx) {
         // Syntax: STR_CONST
         ctx.exprType = (Type)stringSymbol;
-        ctx.height = 0;
+        ctx.height = 1;
         return ctx;
     }
 
@@ -700,7 +702,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
             reporter.errorMessage(ctx, "Incompatible type: must be of type int");
         }
         ctx.exprType = (Type) intSymbol;
-        ctx.height = ctx.height + 1;
+        ctx.height = ctx.expr().height;
 
         return ctx;
     }
@@ -750,7 +752,7 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
             reporter.errorMessage(argsCtx, "Number of arguments does not match number of required parameters");
         } else {
             String mismatches = "";
-            for (int i = 0; i <= numOfParams; i++) {
+            for (int i = 0; i < numOfParams; i++) {
                 ParameterSymbol param = (ParameterSymbol) methodSymbol.getSymbols().get(i);
                 Type paramType = param.getType();
                 if (paramType != ((BantamJavaParser.LstOfArgsContext) argsCtx).expr(i).exprType) {
@@ -772,12 +774,35 @@ public class SemanticAnalyzer2 extends BantamJavaBaseVisitor<ParserRuleContext> 
     public ParserRuleContext visitLstOfArgs(BantamJavaParser.LstOfArgsContext ctx) {
         // Syntax: LPAREN (expr (COMMA expr)*)* RPAREN
         super.visitLstOfArgs(ctx);
-        ctx.height = 0;
+        ctx.height = 1 + (ctx.getChildCount() - 1) / 2;
 
-        for (int i = 0; i <= (ctx.getChildCount() - 1) / 2; i++) {
+        for (int i = 0; i < (ctx.getChildCount() - 1) / 2; i++) {
             ctx.height = max(ctx.height, ctx.expr(i).height);
         }
 
         return ctx;
+    }
+
+    /**
+     * Visit a parse tree produced by the {@code lstOfArgs}
+     * labeled alternative in {@link BantamJavaParser#argsList}.
+     *
+     * @param m the depth of the stack for a left subexpression
+     * @param n he depth of the stack for a left subexpression
+     * @return the stack depth needed to have two values on the stack
+     */
+    private static int opStackDepth(int m, int n) {
+        int stackDepth;
+        if (m > n) {
+            // m is enough space to hold the left expr's value and
+            // still evaluate the right side's value
+            stackDepth = m;
+        }
+        else {
+            // We need space to hold the left side's value plus space
+            // to evaluate the right side
+            stackDepth = n + 1;
+        }
+        return stackDepth;
     }
 }

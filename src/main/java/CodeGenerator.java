@@ -1,20 +1,31 @@
 import java.io.*;
-import java.nio.charset.CoderMalfunctionError;
 
-import com.sun.tools.javac.jvm.Code;
+import org.antlr.symtab.ClassSymbol;
+import org.antlr.symtab.MethodSymbol;
+import org.antlr.symtab.Scope;
 import org.antlr.v4.runtime.ParserRuleContext;
+
 
 public class CodeGenerator extends BantamJavaBaseVisitor<ParserRuleContext> {
 
     private PrintStream codeFile = null;
     private ErrorReporter reporter = null;
 
+    protected Scope globals = null;
+    protected ClassSymbol classScope = null;
+    protected MethodSymbol methodScope = null;
+    protected Scope currentScope = null;
+
+
     CodeGenerator(ErrorReporter reporter) {
+
         this.reporter = reporter;
     }
 
     @Override
     public ParserRuleContext visitProgram(BantamJavaParser.ProgramContext ctx) {
+
+        System.out.println("CodeGenerator");
 
         // Open a file to contain the generated Jasmin assembly code
         // The name of the file is (for now, anyway) Bantam.j
@@ -25,9 +36,14 @@ public class CodeGenerator extends BantamJavaBaseVisitor<ParserRuleContext> {
             System.exit(2);
         }
 
+        globals = ctx.scope;
+        currentScope = globals;
+
         super.visitProgram(ctx);
 
         codeFile.close();
+
+        currentScope = null;
 
         return ctx;
     }
@@ -35,38 +51,74 @@ public class CodeGenerator extends BantamJavaBaseVisitor<ParserRuleContext> {
     @Override
     public ParserRuleContext visitClass(BantamJavaParser.ClassContext ctx) {
 
+        currentScope = ctx.scope;
+        classScope = ctx.symbol;
+
         // Issue a directive to define a class
+        codeFile.print("; Line");
+        codeFile.println(ctx.start.getLine());
         codeFile.println(".class public " + ctx.className.getText());
-        codeFile.println(".super " + "SUPERCLASSNAME");
+        codeFile.println(".super " + "SUPERCLASSNAME"); // TODO
+        codeFile.println(".implements java/lang/Cloneable");
         codeFile.println();
+
+        // Emit code for the fields
+        codeFile.println(".field protected <name> <type>");  // TODO
 
         // Generate code for the constructor
         codeFile.println(".method public <init>()V");
+        codeFile.println(".limit stack <max>");   // TODO
+        codeFile.println(".limit locals <n>");   // TODO
         codeFile.println("    aload_0");
+        codeFile.println("    dup");
         codeFile.println("    invokespecial java/lang/Object/<init>()V");
+
+        // Code to initialize the fields
+        // TODO
+
         codeFile.println("    return");
+        codeFile.println(".end method");
         codeFile.println();
 
-        return super.visitClass(ctx);
+        super.visitClass(ctx);
+
+        // Spit out the code below
+        // TODO
+//        .method static public main([Ljava.lang.String;)V
+//                .limit stack 2
+//                .limit locals 1
+//        new Main
+//        dup
+//        invokespecial Main/<init>()V
+//        invokevirtual Main/original_main()V
+//        return
+//        .end method
+
+        currentScope = currentScope.getEnclosingScope();
+        return ctx;
     }
 
     @Override
     public ParserRuleContext visitTypeVoid(BantamJavaParser.TypeVoidContext ctx) {
+
         return super.visitTypeVoid(ctx);
     }
 
     @Override
     public ParserRuleContext visitTypeInt(BantamJavaParser.TypeIntContext ctx) {
+
         return super.visitTypeInt(ctx);
     }
 
     @Override
     public ParserRuleContext visitTypeBool(BantamJavaParser.TypeBoolContext ctx) {
+
         return super.visitTypeBool(ctx);
     }
 
     @Override
     public ParserRuleContext visitTypeID(BantamJavaParser.TypeIDContext ctx) {
+
         return super.visitTypeID(ctx);
     }
 
@@ -78,7 +130,7 @@ public class CodeGenerator extends BantamJavaBaseVisitor<ParserRuleContext> {
     @Override
     public ParserRuleContext visitMemberMethod(BantamJavaParser.MemberMethodContext ctx) {
         return super.visitMemberMethod(ctx);
-    }
+     }
 
     @Override
     public ParserRuleContext visitFieldDeclOrInst(BantamJavaParser.FieldDeclOrInstContext ctx) {
@@ -88,6 +140,10 @@ public class CodeGenerator extends BantamJavaBaseVisitor<ParserRuleContext> {
     @Override
     public ParserRuleContext visitMethodDeclaration(BantamJavaParser.MethodDeclarationContext ctx) {
         // Defining a method
+
+        currentScope = ctx.scope;
+        methodScope = ctx.symbol;
+
         codeFile.println("; Defining a method");
         codeFile.print(".method public ");
         codeFile.print(ctx.ID().getText());
@@ -100,8 +156,10 @@ public class CodeGenerator extends BantamJavaBaseVisitor<ParserRuleContext> {
 
         codeFile.println("    ; set up local variables");
 
+        super.visitMethodDeclaration(ctx);
 
-        return super.visitMethodDeclaration(ctx);
+        currentScope = currentScope.getEnclosingScope();
+        return ctx;
     }
 
     @Override
@@ -141,6 +199,7 @@ public class CodeGenerator extends BantamJavaBaseVisitor<ParserRuleContext> {
 
     @Override
     public ParserRuleContext visitBlockStmt(BantamJavaParser.BlockStmtContext ctx) {
+
         return super.visitBlockStmt(ctx);
     }
 

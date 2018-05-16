@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9a815add-9a2e-4cd9-acc1-689f6cfbefa2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CodeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CodeGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ErrorReporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ErrorReporter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -24,8 +26,8 @@
       <file leaf-file-name="SemanticAnalyzer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SemanticAnalyzer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2154">
-              <caret line="267" column="21" lean-forward="true" selection-start-line="267" selection-start-column="21" selection-end-line="267" selection-end-column="21" />
+            <state relative-caret-position="197">
+              <caret line="94" selection-start-line="92" selection-end-line="94" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#755#756#0" expanded="true" />
@@ -35,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SemanticAnalyzer2.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SemanticAnalyzer2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="386" column="7" lean-forward="true" selection-start-line="386" selection-start-column="7" selection-end-line="386" selection-end-column="7" />
+            <state relative-caret-position="232">
+              <caret line="149" column="39" lean-forward="true" selection-start-line="149" selection-start-column="39" selection-end-line="149" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,11 +49,45 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="CodeGenerator.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/CodeGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="411">
+              <caret line="149" column="57" lean-forward="true" selection-start-line="149" selection-start-column="57" selection-end-line="149" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Bantam.j" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bantam.j">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="406">
+              <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ErrorReporter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ErrorReporter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="785">
-              <caret line="44" selection-start-line="44" selection-end-line="44" />
+            <state relative-caret-position="1450">
+              <caret line="50" column="21" lean-forward="true" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TextIO.class" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/TextIO.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3190">
+              <caret line="110" lean-forward="true" selection-start-line="5" selection-end-line="110" />
+              <folding>
+                <element signature="e#0#2690#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,44 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Primes.btm" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testcode/Primes.btm">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BantamJavaCompiler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaCompiler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BantamJavaBaseVisitor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaBaseVisitor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="103" column="84" selection-start-line="103" selection-start-column="84" selection-end-line="103" selection-end-column="84" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AbstractParseTreeVisitor.class" pinned="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/lib/antlr-4.7.1-complete.jar!/org/antlr/v4/runtime/tree/AbstractParseTreeVisitor.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="107">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
               <folding>
                 <element signature="e#307#308#0" expanded="true" />
                 <element signature="e#347#348#0" expanded="true" />
@@ -125,10 +128,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>MethodDe</find>
-      <find>errorMessage(</find>
-      <find>CheckValidType</find>
-      <find>decl</find>
       <find>Field</find>
       <find>Incompatible expression type</find>
       <find>visitTy</find>
@@ -151,10 +150,14 @@
       <find>Add</find>
       <find>exprid</find>
       <find>field</find>
-      <find>fieldName</find>
       <find>max</find>
-      <find>formal</find>
       <find>ctx.height</find>
+      <find>int m</find>
+      <find>methodSc</find>
+      <find>visitMember</find>
+      <find>block</find>
+      <find>fieldName</find>
+      <find>formal</find>
     </findStrings>
     <replaceStrings>
       <replace>ExprParser</replace>
@@ -165,8 +168,8 @@
       <replace>public Integer</replace>
       <replace>ParserRuleContext</replace>
       <replace>TARGET_</replace>
-      <replace>reporter.errorMessage(</replace>
       <replace>reporter</replace>
+      <replace>reporter.errorMessage(</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -201,8 +204,6 @@
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/AssemblyCode.java" />
         <option value="$PROJECT_DIR$/src/main/java/JasminCode.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ErrorReporter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/CodeGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/ParserListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/BantamJavaCompiler.java" />
         <option value="$PROJECT_DIR$/src/main/java/BantamJavaPrimitiveScope.java" />
@@ -210,6 +211,8 @@
         <option value="$PROJECT_DIR$/testcode/Primes.btm" />
         <option value="$PROJECT_DIR$/src/main/java/BantamJava.g4" />
         <option value="$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ErrorReporter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/CodeGenerator.java" />
       </list>
     </option>
   </component>
@@ -261,6 +264,11 @@
             <path>
               <item name="201702-cosc420-bjc" type="b2602c69:ProjectViewProjectNode" />
               <item name="201702-cosc420-bjc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="201702-cosc420-bjc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="201702-cosc420-bjc" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="201702-cosc420-bjc" type="b2602c69:ProjectViewProjectNode" />
@@ -503,7 +511,7 @@
       <workItem from="1524071283808" duration="530000" />
       <workItem from="1524236133928" duration="1452000" />
       <workItem from="1524618378688" duration="3401000" />
-      <workItem from="1525029423858" duration="54999000" />
+      <workItem from="1525029423858" duration="64260000" />
     </task>
     <task id="LOCAL-00001" summary="add example1.cal and ExprJoyRide.java">
       <created>1518307721439</created>
@@ -645,14 +653,22 @@
       <option name="project" value="LOCAL" />
       <updated>1525872020755</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Add code for expression height, although it needs help.">
+      <created>1525875419088</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1525875419088</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172542000" />
+    <option name="totallyTimeSpent" value="181803000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -661,15 +677,15 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.10443491" side_tool="true" weight="0.37780547" />
       <window_info anchor="right" id="Maven Projects" order="4" weight="0.28029078" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32793018" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.52051836" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.8955651" weight="0.37780547" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.7224622" />
       <window_info id="Capture Tool" order="1" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5210728" visible="true" weight="0.19222577" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5210728" weight="0.2911302" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="ANTLR Preview" order="10" weight="0.66918105" />
       <window_info id="Structure" order="5" sideWeight="0.4789272" side_tool="true" weight="0.29256082" />
@@ -677,7 +693,7 @@
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="6" side_tool="true" weight="0.32956383" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.48704103" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49928468" weight="0.4862843" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
@@ -754,23 +770,12 @@
     <MESSAGE value="Change semantic analysis to have two passes" />
     <MESSAGE value="Clean up some code" />
     <MESSAGE value="Implement matchArgs and visitLstOfArgs() in SemanticAnalyzer2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement matchArgs and visitLstOfArgs() in SemanticAnalyzer2" />
+    <MESSAGE value="Add code for expression height, although it needs help." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add code for expression height, although it needs help." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/CodeGenerator.java</url>
-          <line>87</line>
-          <properties />
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java</url>
-          <line>645</line>
-          <properties />
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ErrorReporter.java</url>
           <line>44</line>
@@ -778,20 +783,36 @@
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java</url>
-          <line>108</line>
+          <url>file://$PROJECT_DIR$/src/main/java/CodeGenerator.java</url>
+          <line>54</line>
           <properties />
-          <option name="timeStamp" value="67" />
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/CodeGenerator.java</url>
+          <line>143</line>
+          <properties />
+          <option name="timeStamp" value="72" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="68" />
+      <option name="time" value="73" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>ctx.start.getLine()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>ctx.start.getCharPositionInLine()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>currentClassSymbol.getFields()</expression-string>
         <language-id>JAVA</language-id>
@@ -829,38 +850,9 @@
         <custom-info>BantamJavaParser</custom-info>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>returnCtx</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>ctx.retn()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/lib/antlr-4.7.1-complete.jar!/org/antlr/v4/runtime/tree/AbstractParseTreeVisitor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SemanticAnalyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1595">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#755#756#0" expanded="true" />
-            <element signature="e#774#775#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ExprBaseVisitor.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Expr.tokens" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ExprLexer.java" />
@@ -1034,34 +1026,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bantam.j">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaBaseListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-9124">
           <caret line="143" column="7" lean-forward="true" selection-start-line="143" selection-start-column="7" selection-end-line="143" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="88" column="7" lean-forward="true" selection-start-line="88" selection-start-column="7" selection-end-line="88" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CodeGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="909">
-          <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1085,38 +1053,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaBaseVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="103" column="84" selection-start-line="103" selection-start-column="84" selection-end-line="103" selection-end-column="84" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/antlr-4.7.1-complete.jar!/org/antlr/v4/runtime/tree/AbstractParseTreeVisitor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#307#308#0" expanded="true" />
-            <element signature="e#347#348#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaPrimitiveScope.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ErrorReporter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="785">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
         </state>
       </provider>
     </entry>
@@ -1174,10 +1114,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/testcode/Primes.btm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SemanticAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2154">
-          <caret line="267" column="21" lean-forward="true" selection-start-line="267" selection-start-column="21" selection-end-line="267" selection-end-column="21" />
+        <state relative-caret-position="197">
+          <caret line="94" selection-start-line="92" selection-end-line="94" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#755#756#0" expanded="true" />
@@ -1186,10 +1133,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testcode/Primes.btm">
+    <entry file="jar://$PROJECT_DIR$/lib/antlr-4.7.1-complete.jar!/org/antlr/v4/runtime/tree/AbstractParseTreeVisitor.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        <state relative-caret-position="107">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#307#308#0" expanded="true" />
+            <element signature="e#347#348#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bantam.j">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="149" column="39" lean-forward="true" selection-start-line="149" selection-start-column="39" selection-end-line="149" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Sys.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="25" lean-forward="true" selection-start-line="5" selection-end-line="25" />
+          <folding>
+            <element signature="e#0#428#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ErrorReporter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1450">
+          <caret line="50" column="21" lean-forward="true" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/TextIO.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3190">
+          <caret line="110" lean-forward="true" selection-start-line="5" selection-end-line="110" />
+          <folding>
+            <element signature="e#0#2690#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="81" column="7" lean-forward="true" selection-start-line="81" selection-start-column="7" selection-end-line="81" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaBaseVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="82" column="23" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1203,10 +1216,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/CodeGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="386" column="7" lean-forward="true" selection-start-line="386" selection-start-column="7" selection-end-line="386" selection-end-column="7" />
+        <state relative-caret-position="411">
+          <caret line="149" column="57" lean-forward="true" selection-start-line="149" selection-start-column="57" selection-end-line="149" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

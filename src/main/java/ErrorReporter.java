@@ -44,6 +44,8 @@ public class ErrorReporter {
     void errorMessage(ParserRuleContext ctx, String message) {
         System.err.print("[");
         System.err.print(ctx.getStart().getLine());
+        System.err.print(":");
+        System.err.print(ctx.start.getCharPositionInLine());
         System.err.print("] ERROR: ");
         System.err.println(message);
         ++errorCount;
