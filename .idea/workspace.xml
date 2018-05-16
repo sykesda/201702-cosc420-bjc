@@ -4,8 +4,6 @@
     <list default="true" id="9a815add-9a2e-4cd9-acc1-689f6cfbefa2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CodeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CodeGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ErrorReporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ErrorReporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SemanticAnalyzer2.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,8 +50,8 @@
       <file leaf-file-name="CodeGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/CodeGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="149" column="57" lean-forward="true" selection-start-line="149" selection-start-column="57" selection-end-line="149" selection-end-column="57" />
+            <state relative-caret-position="320">
+              <caret line="205" column="36" selection-start-line="205" selection-start-column="36" selection-end-line="205" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/Bantam.j">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="406">
-              <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+              <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -128,9 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Field</find>
-      <find>Incompatible expression type</find>
-      <find>visitTy</find>
       <find>visitFieldDeclOrInst</find>
       <find>Retn</find>
       <find>Parameter</find>
@@ -156,8 +151,11 @@
       <find>methodSc</find>
       <find>visitMember</find>
       <find>block</find>
+      <find>variable</find>
+      <find>if</find>
       <find>fieldName</find>
       <find>formal</find>
+      <find>label</find>
     </findStrings>
     <replaceStrings>
       <replace>ExprParser</replace>
@@ -173,6 +171,11 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="David Sykes" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -264,6 +267,11 @@
             <path>
               <item name="201702-cosc420-bjc" type="b2602c69:ProjectViewProjectNode" />
               <item name="201702-cosc420-bjc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="201702-cosc420-bjc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="201702-cosc420-bjc" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="201702-cosc420-bjc" type="b2602c69:ProjectViewProjectNode" />
@@ -511,7 +519,7 @@
       <workItem from="1524071283808" duration="530000" />
       <workItem from="1524236133928" duration="1452000" />
       <workItem from="1524618378688" duration="3401000" />
-      <workItem from="1525029423858" duration="64260000" />
+      <workItem from="1525029423858" duration="65361000" />
     </task>
     <task id="LOCAL-00001" summary="add example1.cal and ExprJoyRide.java">
       <created>1518307721439</created>
@@ -660,11 +668,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525875419088</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Fix scope tracking in CodeGenerator and add code to emit instructions for a class definition">
+      <created>1526473362799</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1526473362799</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181803000" />
+    <option name="totallyTimeSpent" value="182904000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -771,7 +786,8 @@
     <MESSAGE value="Clean up some code" />
     <MESSAGE value="Implement matchArgs and visitLstOfArgs() in SemanticAnalyzer2" />
     <MESSAGE value="Add code for expression height, although it needs help." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add code for expression height, although it needs help." />
+    <MESSAGE value="Fix scope tracking in CodeGenerator and add code to emit instructions for a class definition" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix scope tracking in CodeGenerator and add code to emit instructions for a class definition" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -784,13 +800,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/CodeGenerator.java</url>
-          <line>54</line>
+          <line>61</line>
           <properties />
           <option name="timeStamp" value="71" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/CodeGenerator.java</url>
-          <line>143</line>
+          <line>150</line>
           <properties />
           <option name="timeStamp" value="72" />
         </line-breakpoint>
@@ -1147,7 +1163,7 @@
     <entry file="file://$PROJECT_DIR$/Bantam.j">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
-          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1198,8 +1214,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/BantamJavaBaseVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="82" column="23" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
+        <state relative-caret-position="264">
+          <caret line="117" column="23" selection-start-line="117" selection-start-column="23" selection-end-line="117" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1218,8 +1234,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/CodeGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="149" column="57" lean-forward="true" selection-start-line="149" selection-start-column="57" selection-end-line="149" selection-end-column="57" />
+        <state relative-caret-position="320">
+          <caret line="205" column="36" selection-start-line="205" selection-start-column="36" selection-end-line="205" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

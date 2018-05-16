@@ -10,6 +10,7 @@ public class CodeGenerator extends BantamJavaBaseVisitor<ParserRuleContext> {
 
     private PrintStream codeFile = null;
     private ErrorReporter reporter = null;
+    private int nextLabel = 0;
 
     protected Scope globals = null;
     protected ClassSymbol classScope = null;
@@ -20,6 +21,12 @@ public class CodeGenerator extends BantamJavaBaseVisitor<ParserRuleContext> {
     CodeGenerator(ErrorReporter reporter) {
 
         this.reporter = reporter;
+    }
+
+    private String getNextLabel() {
+        String lbl = "L" + Integer.toString(nextLabel);
+        nextLabel++;
+        return lbl;
     }
 
     @Override
@@ -184,11 +191,29 @@ public class CodeGenerator extends BantamJavaBaseVisitor<ParserRuleContext> {
 
     @Override
     public ParserRuleContext visitStmtIf(BantamJavaParser.StmtIfContext ctx) {
+
+        String elseLabel = getNextLabel();
+        String endLabel = getNextLabel();
+
+        codeFile.println("    ; if statement: boolean expression");
+        // Emit code for the expression TODO
+
+        codeFile.println("    ifeq  " + elseLabel);
+        codeFile.println("    ; then part code");
+        // Emit code for the _then_ part  TODO
+
+        codeFile.println("    goto " + endLabel);
+        codeFile.println(elseLabel + ':');
+        // Emit code for any _else_ part TODO
+
+        codeFile.println(endLabel + ':');
+
         return super.visitStmtIf(ctx);
     }
 
     @Override
     public ParserRuleContext visitStmtWhile(BantamJavaParser.StmtWhileContext ctx) {
+
         return super.visitStmtWhile(ctx);
     }
 
